@@ -1,0 +1,16 @@
+The Knight's Tour:
+
+The Knight's Tour is a mathematical problem that originated around the ninth century. The problem consists of finding all of the possible paths that a Knight can take in a chess board, without ever jumping to the same square more than once (once a square on the chess table has been visited by the Knight, it can not be visited once more during the same path). While there are such things as closed and open paths, my program does not take these into account. All we are interested in finding is the total number of the unique paths that the Knight can take, and displaying these paths in the order in which they are discovered. While more efficient algorithms exist to acomplish the task of solving the Knight's Tour, such as Warnsdorff's Rule, my program uses recursive backtracking to solve it. Since the Knight's criteria for what qualifies as a valid move never changes, and neither does the process of choosing and moving to a next square, this is an excellent algorithm for solving the Knight's Tour.
+
+My solution for the Knight's Tour uses a five-by-five chess table, but this can easily be changed by altering the values of the defined constant 'SIZE'. 
+
+  0  1  2  3  4
+-----------------
+| 1  2  3  4  5  | 0
+| 6  7  8  9  10 | 1
+| 11 12 13 14 15 | 2
+| 16 17 18 19 20 | 3
+| 21 22 23 24 25 | 4
+------------------
+
+My solution, which has been written in C, utilizes several different helper methods (initializeChessTable(), printChessTable(), initializeVisitedTable(), printPath(), and newPath()) along with the two main methods, solveKnightsTourRecursive() and solveKnightsTour(). While many of these functions names depict what they accomplish, my code is filled with several explanatory comments to make understanding the function of my solution more clear. Additionally, I went ahead and provided a rather long explanation of how to go about creating a recursive backtracking algorithm for any particular problem. The gist of a recursive backtracking algorithm is that it is comprised of three keys: Choice, Constraints, and Goal.
