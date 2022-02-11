@@ -1,0 +1,10 @@
+__world: world.o map.o
+	gcc world.o map.o -o  world
+
+world.o: world.c map.h
+	gcc world.c  -Wall -Werror -ggdb -c
+	
+map.o: map.c map.h
+	gcc map.c -Wall -Werror -ggdb  -c
+clean:
+	rm -f *~ world world.o map.o core

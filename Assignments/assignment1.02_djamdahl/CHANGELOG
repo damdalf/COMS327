@@ -1,0 +1,65 @@
+02/09/22 @ 9:00 PM:
+	I have greatly procrastinated this assignment as I had been feeling
+sick for the past couple of days, so I have yet to do much for this
+assignment. As of now, I have only converted my original 'mapGeneration.c'
+solution from Assignment 1.01 to a struct, and broken up the code into two
+separate files (a header and source file) to be more modular. These two files
+are 'map.h' and 'map.c'.
+
+02/10/22 @ 12:00 AM:
+	I ran into an issue with my 'manualGeneration()' actually lining up
+up with the previous map, but I have resolved that. And for the sake of time,
+I am not going to be separating my map generation header file into an
+additional source file, as I am running out of time. Currently, I am trying
+to resolve the problem of getting manually generated maps to match their
+neighbors exits in ALL directions, as my solution only matches the previous
+map (as in if you move North, the South exit of the new map will match the
+North exit of the old map, but not the ones that are potentially to the new
+map's East, North, or West. Obviously this is a rather large issue).
+
+02/10/22 @ 6:00 AM:
+	At this point, I have still made the decision to not separate my 
+header file and function definitions into separate files as usually done,
+for the sake of time as I do not know when TA's will begin grading this 
+assignment. Since my last entry, I have resolved the issue of ensuring that
+all new maps' exits align with those of their neighboring maps (if they exist)
+. The solution was far simpler than I had imagined, but it was hard to
+conceptualize without actually generating the maps within the pointer world
+array. Additionally, I have prevented exits from being generated on the world
+borders, printing the map's coordinates under itself, adding stricter bounds
+checks with error messages, handling all possible inputs from the user, and
+freeing up all memory that was allocated using 'malloc()' during the program's
+execution. However, I have yet to implement the feature of the odds of a 
+PokeMart and PokeCenter being generated lessening as the player moves further
+away from the origin (199, 199). Other than that, my program meets all other
+specified criteria, and compiles with no warnings or errors.
+
+02/10/22 @ 7:00 AM:
+	Went to the Piazza to find more information regarding making the
+generation of the PokeMart and PokeCenter less frequent as the player moves
+futher away from the origin (199, 199) when I saw that another specification,
+that was not listed in the original assignment's directions, existed. This is
+the fact that our 'f' command must generate a new map if the player teleports
+to a map that has yet to be created, thus I quickly added that functionality.
+
+02/10/7:30 AM:
+	Finally was able to implement the functionality for the frequency
+of generation of the PokeMart and PokeCenter to decrease as the player moves
+further away from the origin (199, 199). Zipping and shipping.
+
+02/10/22 @ 7:47 AM:
+	I was not pleased with how frequently / infrequently the PokeMart and
+PokeCenter were being generated using the Professor's provided equation, so I
+opted to create my own (which still uses a 50% probability when the Manhattan
+distance is less than or equal to 200, and a 5% probability when the Manhattan
+distance is greater than 200).
+
+02/10/22 @ 8:07 AM:
+	Corrected a small bug that was occurring when freeing up the memory
+that had been allocated throughout the program's execution. The bug was only
+occurring when the user's first move was to use the 'f' command, and then
+exiting the program after that single move. This issue has now been resolved.
+
+02/10/22 @ 9:19 AM:
+	Found an unexpected error where the 'break;' in my switch case for 'f'
+command was unreachable. This has been fixed.

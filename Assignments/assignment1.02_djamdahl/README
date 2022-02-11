@@ -1,0 +1,16 @@
+For this assignment, we were tasked with building off of our previous random
+map generation assignment from last week, by implementing the ability to move
+from map to map. While this may sound easy, there were several criteria that
+had to be met for each movement.
+	- The world that stored these maps must be capable of storing
+	399x399 maps. 
+	- Each map had to be dynamically allocated (memory) and created.
+	- The exits of any map and their neighbors had to line up.
+	- The borders of the world could not have exits that were generated.
+	- We had to provide the functionality of six different commands that
+	can be entered by the user, while also gracefully handling any other
+	inputs that did not correspond to the six commands.
+	- The coordinates of the maps had to be printed underneath each map
+	once it was printed to the terminal.
+	- The probability of the map having a PokeMart and PokeCenter must
+	reduce as the player moves further away from the origin (199, 199)

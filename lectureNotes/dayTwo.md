@@ -41,12 +41,9 @@
 ## **Code:**
 ```C
 #include <stdio.h>
-
 #define DIM 12
-
 // functions should be declared above main, or you should provide a function prototype
 int fib(unsigned i);
-
 void gen_times_table(int table[DIM][DIM])
 {
     for (j = 0; j < DIM; j++){
@@ -55,35 +52,28 @@ void gen_times_table(int table[DIM][DIM])
         }
     }
 }
-
 int main(int argc, char *argv[])
 {
     int table[DIM][DIM];
     int j, i;
-
     gen_times_table(table);
-
     for (j = 0; j < DIM; j++){
         for (i = 0; i < DIM; i++){
             printf("%3d ", table[j][i])
         }
         print("\n");
     }
-
     for (i = 0; i < 25; i++){
         printf("%d: %d\n", i, fib(i));
     }
-
     return 0;
 }
-
 // really bad example of a recursive function in C
 int fib(unsigned i)
 {
     if (i < 2){
         return i;
     }
-
     return (fib(i - 1) + fib(i - 2));
 }
 ```

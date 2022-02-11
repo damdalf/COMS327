@@ -1,0 +1,37 @@
+This program is my attempt at procedurally generating a 2-D game map for a
+text-based Pokemon themed video game. Instead of handling the generation of
+both the clearing and tall grass regions separately, I instead chose to
+initialize the map covered in clearings, and then generated my tall grass
+regions and forests on top of these. This reduced some of the random generation
+complexity, but still left the generation of the clearings random.
+
+While much of the map's design was left up to us students, there were certain 
+criteria that we had to abide by, which included:
+
+* All the code is in C.
+* The map measures 80 units (horizontal) by 21 units (vertical).
+	- Standard terminal is 80 x 24, which leaves us three rows for text.
+* At least two paths through our map.
+	- One oriented N-S, the other E-W. These paths must intersect
+	somewhere in our map. Represented using pound synbols: (#####).
+* A Pokemon Center and a Poke Mart.
+	- Represented by one or more 'C' and 'M': (MM) or (CC)
+						  (MM) or (CC)
+	- May eventually represent these by square ASCII values around the
+	'C' or 'M'.
+	- The Pokemon Center and Poke Mart must be reachable from the path
+	without having to go through tall grass.
+* The map must contain at least two regions of tall grass.
+	- Represented using colons: (:::::).
+* The outermost cells of the map are immovable boulders, beyond one exit on
+each border.
+	- Represented using percent signs: (%%%%%).
+	- N-S path must go between the top and bottom exits. 
+	- E-W path must go between the right and left exits.
+* The map must contain at least two clearings.
+	- Represented using periods: (....).
+* Optionally can include other terrains such as:
+	- Trees:   (^^^^).
+	- Flowers: (****).
+	- Rocks:   (@@@@).
+	- Water:   (~~~~).

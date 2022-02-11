@@ -18,31 +18,24 @@ Jan 25: Removed infinite recursion, project is completed.
 # run 'make clean' to remove the binaries
 ---
 make clean
-
 # move into the parent directory to be able to make a tarball of the current directory
 ---
 cd ..
-
 # make a copy of the directory to ensure the name will meet submission criteria
 ---
 cp -R originalDirectory assignment_username
-
 # now, it's time to create the tarball. there are four switches to tar: 'c' means create, 'v' means verbose, 'f' means force, and 'z' means compress with gzip.
 ---
 tar cvfz assignment_username.tar.gz assignment_username
-
 # while you could be done here, you do want to risk receiving a penalty on your grade for doing it incorrectly. thus, let's test it out. however, you cannot expand the tar here since the target directory already exists. so, let's make a temporary directory to expand the tar in.
 ---
 mkdir test
-
 # now, lets move into it.
 ---
 cd test
-
 # now, let's open up the archive to make sure everything went smoothly. gzip decompresses and compresses: the 'd' switch tells gzip to decompress the tar. the 'c' switch tells gzip to concatenate the output to the standard out, then we pipe '|' that to tar, where the 'x' switch means to expand, the 'v' switch means verbose, the 'f' switch means to force, and a file name of '-' means to read the file from the standard input. this should display all of the files that are stored in the tar. if nothing is missing, then good! to be extra sure, you can move into the directory, do a build, some testing, etc. 
 ---
 gzip -dc ../assignment_username.tar.gz | tar xvf -
-
 # if everything looks good, then awesome! since you don't need the temporary directory or the renamed directory, you can remove them.
 ---
 rm -rf test assignment_username
@@ -77,7 +70,6 @@ clean: rm -f *~ hello.class core
 * Ex) multiple files
 ```txt
 all: hello times_table hello.class
-
 hello: hello.c
     gcc hello.c -o -Wall -Werror hello
 times_table: times_table.c
@@ -90,7 +82,6 @@ clean:
 * Ex) multiple files and optimizing build time (building files in multiple steps)
 ```txt
 all: hello times_table hello.class
-
 hello: hello.o
     gcc hello.o -o hello
 hello.o: hello.c
@@ -102,4 +93,3 @@ times_table.o: times_table.c
 clean:
     rm -f *~ hello.o hello times_table hello.class core
 ```
-

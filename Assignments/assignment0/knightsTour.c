@@ -5,27 +5,6 @@
 #define POSSIBLE_MOVES 8
 #define PATH_LENGTH SIZE * SIZE
 
-// Function stub for initializeChessTable().
-void initializeChessTable(int chessTable[SIZE][SIZE]);
-
-// Function stub for printChessTable().
-void printChessTable(int chessTable[SIZE][SIZE]);
-
-// Function stub for initializeVisitedTable().
-void initializeVisitedTable(int visitedTable[SIZE][SIZE]);
-
-// Function stub for printPath().
-void printPath(int visitedPath[PATH_LENGTH]);
-
-// Function stub for newPath().
-void newPath(int chessTable[SIZE][SIZE], int visitedTable[SIZE][SIZE], int visitedPath[PATH_LENGTH], int moveCount);
-
-// Function stub for solveKnightsTourRecursive().
-bool solveKnightsTourRecursive(int chessTable[SIZE][SIZE], int visitedTable[SIZE][SIZE], int visitedPath[PATH_LENGTH], int moveCount, int x, int y);
-
-// Function stub for solveKnightsTour().
-void solveKnightsTour(int chessTable[SIZE][SIZE], int visitedTable[SIZE][SIZE], int visitedPath[PATH_LENGTH], int moveCount);
-
 /*
 The Knight's Tour:
 
@@ -110,6 +89,29 @@ The Knight's Tour:
         *   }
         * }
 */
+
+// Function stub for initializeChessTable().
+void initializeChessTable(int chessTable[SIZE][SIZE]);
+
+// Function stub for printChessTable().
+void printChessTable(int chessTable[SIZE][SIZE]);
+
+// Function stub for initializeVisitedTable().
+void initializeVisitedTable(int visitedTable[SIZE][SIZE]);
+
+// Function stub for printPath().
+void printPath(int visitedPath[PATH_LENGTH]);
+
+// Function stub for newPath().
+void newPath(int chessTable[SIZE][SIZE], int visitedTable[SIZE][SIZE], int visitedPath[PATH_LENGTH], int moveCount);
+
+// Function stub for solveKnightsTourRecursive().
+bool solveKnightsTourRecursive(int chessTable[SIZE][SIZE], int visitedTable[SIZE][SIZE], int visitedPath[PATH_LENGTH], int moveCount, int x, int y);
+
+// Function stub for solveKnightsTour().
+void solveKnightsTour(int chessTable[SIZE][SIZE], int visitedTable[SIZE][SIZE], int visitedPath[PATH_LENGTH], int moveCount);
+
+
 
 // Stores the eight possible horizontal moves of the Knight.
 int xMoves[POSSIBLE_MOVES] = {2, 1, -1, -2, -2, -1, 1, 2};
@@ -287,4 +289,6 @@ void solveKnightsTour(int chessTable[SIZE][SIZE], int visitedTable[SIZE][SIZE], 
             }
         }
     }
+}
+
 }

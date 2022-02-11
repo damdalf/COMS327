@@ -1,0 +1,51 @@
+01/28/22:
+	Created project directory and began looking at assignment requirements.
+	Looked into several techniques used to procedurally generate a 2-D
+	map for a text-based game like the one that we are creating.
+01/31/22:
+	Looked through examples of maps that were posted to the Piazza for ideas
+	of how to go about creating mine. Began adding function stubs for methods
+	that I believe will be of use.
+02/01/22: 
+	Created and implemented several basic methods: printColor(), generateSeed(),
+	printMap(), initializeMap(), and tallGrassRegions(). However, encountering a
+	bug where tallGrassRegions() does not always produce TWO regions, as the regions
+	become connected. Currently do not have a 100% working solution.
+02/02/22:
+	Created and implemented the other neccessary methods, which include: placeExits()
+	manuallyPlaceExits(), buildPaths(), placePokeMart(), placePokeCenter(), seededGeneration(),
+	and randomGeneration(). Additionally, I changed the color schemes of certain map items to
+	to create a more lively map. I have not resolved the issue with my tallGrassRegions() where
+	TWO tall grass regions are generated every time. I made the generation of these regions
+	completely random, and as a result I have yet to create a way to guarrantee that two
+	SEPARATE regions are generated, as they still tend to occasionally form together. However,
+	all other aspects of the map's generation are working. While there is a some refactoring
+	and other changes I'd like to complete, I am getting this assignment ready for submission
+	to avoid the possibility of the TA's beginning grading this assignment earlier than expected.
+
+	As to the changes I'd like to make,there are several:
+		- Resolving the above mentioned issues with tallGrassRegions().
+		- General refactoring of my code.
+		- Revising my path generation to appear more organic and natural.
+		- The addition of small ponds.
+		- More locations that the PokeMart and PokeCenter can be placed. While their locations
+		are random, as of now the PokeCenter will always be placed above a segment of the paths
+		and the PokeMart will always be placed below a segment of the paths.
+		- Changes to certain characters used to represent the map objects.
+02/03/22
+	Resolved above issues with tallGrassRegions(), which is now generateRegions() as I added
+	the generation of forests. Refactored a bit of my code, but still needs more work. Changed
+	some of the characters used to display the map contents as well as the colors used. While
+	there is more work I would like to do with the map generation, it meets the criteria as of
+	now in its current state. Thus, I will save those changes for a later date. Additionally,
+	added the function addRandom() which randomly adds flowers, rocks, and trees throughout
+	the map.
+
+	As to the changes I'd like to implement at a later date:
+		- Further refactoring of my code.
+		- Revising my path generation to appear more organic and natural.
+		- The addition of small ponds.
+		- More locations that the PokeMart and PokeCenter can be placed. While their locations
+		are random, as of now the PokeCenter will always be placed above a segment of the 
+		paths and the PokeMart will always be placed below a segment of the paths.
+		- Changes to the characters used to represent items of the map as seen fit.
