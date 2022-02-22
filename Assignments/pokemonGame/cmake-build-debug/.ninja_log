@@ -1,0 +1,9 @@
+# ninja log v5
+1	285	1645402232125609641	CMakeFiles/assignment1_03.dir/poke327.c.o	dc20e2f5e9c5907e
+0	494	1645408071299216294	CMakeFiles/pokemonGame.dir/map.c.o	abb473b299a62fe3
+35	137	1645416201872346293	build.ninja	8d50566d041c2267
+1	232	1645401993817627444	CMakeFiles/assignment1_03.dir/playerCharacter.c.o	5f430a5153b8a2ef
+1	290	1645402232132631523	CMakeFiles/assignment1_03.dir/map.c.o	44ec69cd7545fe9c
+0	495	1645408071299019170	CMakeFiles/pokemonGame.dir/world.c.o	7f24829c70a98dc7
+0	494	1645408071292089694	CMakeFiles/pokemonGame.dir/poke327.c.o	e1a69a4508c9a3ee
+495	546	1645408071353143858	pokemonGame	6c1eba14503c6fb0

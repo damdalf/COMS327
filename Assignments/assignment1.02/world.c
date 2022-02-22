@@ -2,10 +2,23 @@
 #include <stdio.h>
 
 #include "map.h"
+#include "world.h"
 
-#define WORLD_SIZE 399
+// Initialize the world array pointer to NULL at every position.
+void initializeWorld(map_t *world[WORLD_SIZE][WORLD_SIZE])
+{
+    int i, j;
+    for (i = 0; i < 399; i++)
+    {
+        for (j = 0; j < 399; j++)
+        {
+            world[i][j] = NULL;
+        }
+    }
+}
 
-double calculateDistance(int i, int j)
+// Function to calculate the Manhattan distance of the current map from the starting map (COORDINATES: (199, 199)).
+int calculateDistance(int i, int j)
 {
     double xDist, yDist, manDist, odds;
 
@@ -35,49 +48,42 @@ double calculateDistance(int i, int j)
     }
 }
 
-int main()
+// Function to print the user accepted commands to navigate the world.
+void printCommands()
 {
-    // Variable to represent our game's world.
-    map_t *world[WORLD_SIZE][WORLD_SIZE];
-    int i, j;
-    double healingOdds;
-
-
-    // Initialize the world array pointer to NULL at every position.
-    for (i = 0; i < 399; i++)
-    {
-        for (j = 0; j < 399; j++)
-        {
-            world[i][j] = NULL;
-        }
-    }
-
-    // Variables to store the user's inputs.
-    char userInput = 'g';
-    int userX;
-    int userY;
-
-    // Initialize the current position to the center of the world.
-    i = 199;
-    j = 199;
-    userX = -1;
-    userY = -1;
-
     printf("LIST OF COMMANDS:\n");
     printf("n - Display the map immediately North of the current map.\n");
     printf("s - Display the map immediately South of the current map.\n");
     printf("e - Display the map immediately East of the current map.\n");
     printf("w - Display the map immediately West of the current map.\n");
     printf("f - Teleport to the specified coordinates (map) in the world array.\n");
-    printf("q - Quit the game.\n");
+    printf("h - Display the accepted user commands again.\n");
+    printf("q - Quit the game.\n\n");
+}
 
-    world[i][j] = malloc(sizeof(*world[HEIGHT][WIDTH]));
-    randomGeneration(world[i][j]);
+// Function to print the coordinates of the current map within the world array.
+void printCoordinates(int i, int j)
+{
     printf("COORDINATES: (%d, %d).\n\n", j, i);
+}
+
+/* Function to handle the user's input and handle the corresponding functionality.
+    * n - Display the map immediately North of the current map.
+    * e - Display the map immediately East of the current map.
+    * s - Display the map immediately South of the current map.
+    * w - Display the map immediately West of the current map.
+    * f - Teleport to the specified coordinates of the map in the world array.
+    * h - Display the accepted user commands again.
+    * q - Quit the game.
+*/
+void moveToMap(char userInput, map_t *world[WORLD_SIZE][WORLD_SIZE], int i, int j)
+{
+    int userX = -1;
+    int userY = -1;
+    int healingOdds;
 
     while(userInput != 'q')
     {
-
         printf("ENTER ONE OF THE FOLLOWING: n, s, e, w, f, q:");
         printf("\n");
         scanf(" %c", &userInput);
@@ -86,7 +92,14 @@ int main()
         {
             // Moving North.
             case 'n':
-                if (i - 1 >= 0 && world[i - 1][j] == NULL)
+                // Check bounds.
+                if (i - 1 < 0)
+                {
+                    printf("ERROR: YOU HAVE REACHED THE WORLD'S NORTH BORDER. PLEASE MOVE IN ANOTHER DIRECTION.");
+                    printf("\n\n");
+                }
+
+                else if (i - 1 > 0 && world[i - 1][j] == NULL)
                 {
                     i--;
                     world[i][j] = malloc(sizeof(*world[HEIGHT][WIDTH]));
@@ -99,7 +112,7 @@ int main()
                     world[i][j]->mapArray[world[i][j]->southExit[0]][world[i][j]->southExit[1]] = PATH;
 
                     // Check if a neighbor to the North exits.
-                    if (i - 1 >= 0 && world[i - 1][j] != NULL)
+                    if (i - 1 > 0 && world[i - 1][j] != NULL)
                     {
                         // If it does, align the new map's North exit with the neighbors South exit.
                         world[i][j]->northExit[1] = world[i - 1][j]->southExit[1];
@@ -127,7 +140,7 @@ int main()
                     }
 
                     // Check if a neighbor to the West exits.
-                    if (j - 1 >= 0 && world[i][j - 1] != NULL)
+                    if (j - 1 > 0 && world[i][j - 1] != NULL)
                     {
                         // If it does, align the new map's West exit with the neighbors East exit.
                         world[i][j]->westExit[0] = world[i][j - 1]->eastExit[0];
@@ -160,18 +173,13 @@ int main()
                     }
 
                     printMap(world[i][j]);
-                    printf("COORDINATES: (%d, %d).\n\n", j, i);
-                }
-                else if(i - 1 < 0)
-                {
-                    printf("ERROR: YOU HAVE REACHED THE WORLD'S NORTH BORDER. PLEASE MOVE IN ANOTHER DIRECTION.");
-                    printf("\n\n");
+                    printCoordinates(i, j);
                 }
                 else
                 {
                     i--;
                     printMap(world[i][j]);
-                    printf("COORDINATES: (%d, %d).\n\n", j, i);
+                    printCoordinates(i, j);
                 }
 
                 if (i == 0)
@@ -183,7 +191,13 @@ int main()
 
                 // Moving South.
             case 's':
-                if (i + 1 < WORLD_SIZE && world[i + 1][j] == NULL)
+                // Check bounds:
+                if(i + 1 >= WORLD_SIZE)
+                {
+                    printf("ERROR: YOU HAVE REACHED THE WORLD'S SOUTH BORDER. PLEASE MOVE IN ANOTHER DIRECTION.");
+                    printf("\n\n");
+                }
+                else if (i + 1 < WORLD_SIZE && world[i + 1][j] == NULL)
                 {
                     i++;
                     world[i][j] = malloc(sizeof(*world[HEIGHT][WIDTH]));
@@ -224,7 +238,7 @@ int main()
                     }
 
                     // Check if a neighbor to the West exits.
-                    if (j - 1 >= 0 && world[i][j - 1] != NULL)
+                    if (j - 1 > 0 && world[i][j - 1] != NULL)
                     {
                         // If it does, align the new map's West exit with the neighbors East exit.
                         world[i][j]->westExit[0] = world[i][j - 1]->eastExit[0];
@@ -257,13 +271,9 @@ int main()
                     }
 
                     printMap(world[i][j]);
-                    printf("COORDINATES: (%d, %d).\n\n", j, i);
+                    printCoordinates(i, j);
                 }
-                else if(i + 1 >= WORLD_SIZE)
-                {
-                    printf("ERROR: YOU HAVE REACHED THE WORLD'S SOUTH BORDER. PLEASE MOVE IN ANOTHER DIRECTION.");
-                    printf("\n\n");
-                }
+
                 else
                 {
                     i++;
@@ -275,7 +285,13 @@ int main()
 
                 // Moving East.
             case 'e':
-                if (j + 1 < WORLD_SIZE && world[i][j + 1] == NULL)
+                // Check bounds.
+                if(j + 1 >= WORLD_SIZE)
+                {
+                    printf("ERROR: YOU HAVE REACHED THE WORLD'S EAST BORDER. PLEASE MOVE IN ANOTHER DIRECTION.");
+                    printf("\n\n");
+                }
+                else if (j + 1 < WORLD_SIZE && world[i][j + 1] == NULL)
                 {
                     j++;
                     world[i][j] = malloc(sizeof(*world[HEIGHT][WIDTH]));
@@ -316,7 +332,7 @@ int main()
                     }
 
                     // Check if a neighbor to the North exits.
-                    if (i - 1 >= 0 && world[i - 1][j] != NULL)
+                    if (i - 1 > 0 && world[i - 1][j] != NULL)
                     {
                         // If it does, align the new map's North exit with the neighbors South exit.
                         world[i][j]->northExit[1] = world[i - 1][j]->southExit[1];
@@ -349,18 +365,14 @@ int main()
                     }
 
                     printMap(world[i][j]);
-                    printf("COORDINATES: (%d, %d).\n\n", j, i);
+                    printCoordinates(i, j);
                 }
-                else if(j + 1 >= WORLD_SIZE)
-                {
-                    printf("ERROR: YOU HAVE REACHED THE WORLD'S EAST BORDER. PLEASE MOVE IN ANOTHER DIRECTION.");
-                    printf("\n\n");
-                }
+
                 else
                 {
                     j++;
                     printMap(world[i][j]);
-                    printf("COORDINATES: (%d, %d).\n\n", j, i);
+                    printCoordinates(i, j);
                 }
 
                 if (j == WORLD_SIZE - 1)
@@ -372,7 +384,13 @@ int main()
 
                 // Moving West.
             case 'w':
-                if (j - 1 >= 0 && world[i][j - 1] == NULL)
+                // Check bounds.
+                if(j - 1 < 0)
+                {
+                    printf("ERROR: YOU HAVE REACHED THE WORLD'S WEST BORDER. PLEASE MOVE IN ANOTHER DIRECTION.");
+                    printf("\n\n");
+                }
+                else if (j - 1 > 0 && world[i][j - 1] == NULL)
                 {
                     j--;
                     world[i][j] = malloc(sizeof(*world[HEIGHT][WIDTH]));
@@ -399,7 +417,7 @@ int main()
                     }
 
                     // Check if a neighbor to the West exits.
-                    if (j - 1 >= 0 && world[i][j - 1] != NULL)
+                    if (j - 1 > 0 && world[i][j - 1] != NULL)
                     {
                         // If it does, align the new map's West exit with the neighbors East exit.
                         world[i][j]->westExit[0] = world[i][j - 1]->eastExit[0];
@@ -413,7 +431,7 @@ int main()
                     }
 
                     // Check if a neighbor to the North exits.
-                    if (i - 1 >= 0 && world[i - 1][j] != NULL)
+                    if (i - 1 > 0 && world[i - 1][j] != NULL)
                     {
                         // If it does, align the new map's North exit with the neighbors South exit.
                         world[i][j]->northExit[1] = world[i - 1][j]->southExit[1];
@@ -446,18 +464,14 @@ int main()
                     }
 
                     printMap(world[i][j]);
-                    printf("COORDINATES: (%d, %d).\n\n", j, i);
+                    printCoordinates(i, j);
                 }
-                else if(j - 1 < 0)
-                {
-                    printf("ERROR: YOU HAVE REACHED THE WORLD'S WEST BORDER. PLEASE MOVE IN ANOTHER DIRECTION.");
-                    printf("\n\n");
-                }
+
                 else
                 {
                     j--;
                     printMap(world[i][j]);
-                    printf("COORDINATES: (%d, %d).\n\n", j, i);
+                    printCoordinates(i, j);
                 }
 
                 if (j == 0)
@@ -600,7 +614,7 @@ int main()
 
 
                             }
-                            printf("COORDINATES: (%d, %d).\n\n", j, i);
+                            printCoordinates(i, j);
 
                             userX = -1;
                             userY = -1;
@@ -637,11 +651,11 @@ int main()
                     }
                 }
                 break;
+            case 'h':
+                printCommands();
             default:
                 printf("ERROR: AN UNRECOGNIZED COMMAND WAS ENTERED. PLEASE ONLY ENTER THE SPECIFIED COMMANDS.\n\n");
                 break;
         }
     }
-
-    return 0;
 }

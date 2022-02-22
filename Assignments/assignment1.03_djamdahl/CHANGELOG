@@ -1,0 +1,19 @@
+02/11/22:
+	Began working on Assignment1.03, and refactored my code to be more
+	modular. I seaparated my original 'map.c' code into a 'map.h' header
+	file (interface) and a 'map.c' source file. Additionally, I separated
+	my recent 'world.c' code into a 'world.h' header file (interface) and
+	a 'world.c' source file. And lastly, I created a poke327.c file that
+	implements all of this functionality into a single working 'game'
+	file. Yet to actually begin working on the required functionality for
+	Assignment1.03.
+02/12/22:
+	Began looking into an unspecified error that resulted in losing a
+	point on this assignment, "Edge of the map(-1)". Have emailed the TA
+	responsible for grading my assignment for further details.	
+02/13/22:
+	Turns out that the docked point from my Assignment 1.02 solution was
+	the result of a mistake on the TA's end. Thus, no change to my code
+	was neccessary.
+02/20/22:
+	

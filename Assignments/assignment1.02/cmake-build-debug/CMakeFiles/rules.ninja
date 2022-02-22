@@ -42,7 +42,7 @@ rule C_EXECUTABLE_LINKER__assignment1_02_Debug
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/devin/Desktop/school/Spring22/COMS327/Assignments/assignment1.02 -B/Users/devin/Desktop/school/Spring22/COMS327/Assignments/assignment1.02/cmake-build-debug
+  command = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/devin/Desktop/school/Spring22/COMS327/Assignments/assignment1.02 -B/Users/devin/Desktop/school/SPRING22/COMS327/Assignments/assignment1.02/cmake-build-debug
   description = Re-running CMake...
   generator = 1
 

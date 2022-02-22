@@ -1,4 +1,4 @@
 /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/ninja -DCMAKE_C_COMPILER=/usr/bin/gcc -G Ninja /Users/devin/Desktop/school/Spring22/COMS327/Assignments/assignment1.02
 -- Configuring done
 -- Generating done
--- Build files have been written to: /Users/devin/Desktop/school/Spring22/COMS327/Assignments/assignment1.02/cmake-build-debug
+-- Build files have been written to: /Users/devin/Desktop/school/SPRING22/COMS327/Assignments/assignment1.02/cmake-build-debug

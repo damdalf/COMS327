@@ -39,13 +39,13 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/devin/Desktop/school/Spring22/COMS327/Assignments/assignment1.02/cmake-build-debug/
+cmake_ninja_workdir = /Users/devin/Desktop/school/SPRING22/COMS327/Assignments/assignment1.02/cmake-build-debug/
 
 #############################################
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/devin/Desktop/school/Spring22/COMS327/Assignments/assignment1.02/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/devin/Desktop/school/Spring22/COMS327/Assignments/assignment1.02 -B/Users/devin/Desktop/school/Spring22/COMS327/Assignments/assignment1.02/cmake-build-debug
+  COMMAND = cd /Users/devin/Desktop/school/SPRING22/COMS327/Assignments/assignment1.02/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/devin/Desktop/school/Spring22/COMS327/Assignments/assignment1.02 -B/Users/devin/Desktop/school/SPRING22/COMS327/Assignments/assignment1.02/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -57,7 +57,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/devin/Desktop/school/Spring22/COMS327/Assignments/assignment1.02/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/devin/Desktop/school/SPRING22/COMS327/Assignments/assignment1.02/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -84,6 +84,18 @@ build CMakeFiles/assignment1_02.dir/world.c.o: C_COMPILER__assignment1_02_Debug 
   OBJECT_DIR = CMakeFiles/assignment1_02.dir
   OBJECT_FILE_DIR = CMakeFiles/assignment1_02.dir
 
+build CMakeFiles/assignment1_02.dir/poke327.c.o: C_COMPILER__assignment1_02_Debug /Users/devin/Desktop/school/Spring22/COMS327/Assignments/assignment1.02/poke327.c || cmake_object_order_depends_target_assignment1_02
+  DEP_FILE = CMakeFiles/assignment1_02.dir/poke327.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu99
+  OBJECT_DIR = CMakeFiles/assignment1_02.dir
+  OBJECT_FILE_DIR = CMakeFiles/assignment1_02.dir
+
+build CMakeFiles/assignment1_02.dir/map.c.o: C_COMPILER__assignment1_02_Debug /Users/devin/Desktop/school/Spring22/COMS327/Assignments/assignment1.02/map.c || cmake_object_order_depends_target_assignment1_02
+  DEP_FILE = CMakeFiles/assignment1_02.dir/map.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu99
+  OBJECT_DIR = CMakeFiles/assignment1_02.dir
+  OBJECT_FILE_DIR = CMakeFiles/assignment1_02.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target assignment1_02
@@ -92,7 +104,7 @@ build CMakeFiles/assignment1_02.dir/world.c.o: C_COMPILER__assignment1_02_Debug 
 #############################################
 # Link the executable assignment1_02
 
-build assignment1_02: C_EXECUTABLE_LINKER__assignment1_02_Debug CMakeFiles/assignment1_02.dir/broken_copy.c.o CMakeFiles/assignment1_02.dir/world.c.o
+build assignment1_02: C_EXECUTABLE_LINKER__assignment1_02_Debug CMakeFiles/assignment1_02.dir/broken_copy.c.o CMakeFiles/assignment1_02.dir/world.c.o CMakeFiles/assignment1_02.dir/poke327.c.o CMakeFiles/assignment1_02.dir/map.c.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk
   OBJECT_DIR = CMakeFiles/assignment1_02.dir
   POST_BUILD = :
@@ -109,7 +121,7 @@ build assignment1_02: C_EXECUTABLE_LINKER__assignment1_02_Debug CMakeFiles/assig
 # =============================================================================
 
 #############################################
-# Folder: /Users/devin/Desktop/school/Spring22/COMS327/Assignments/assignment1.02/cmake-build-debug
+# Folder: /Users/devin/Desktop/school/SPRING22/COMS327/Assignments/assignment1.02/cmake-build-debug
 
 build all: phony assignment1_02
 
