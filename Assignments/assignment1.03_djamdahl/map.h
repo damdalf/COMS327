@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <time.h>
+#include <limits.h>
+#include <stdbool.h>
 
 #ifndef MAP_H
 #define MAP_H
@@ -40,13 +42,38 @@
 #define TREE '^'
 #define CLEARING '.'
 #define GRASS ':'
-#define ROCK '@'
+#define ROCK 'O'
 #define FLOWER '*'
+#define PLAYER '@'
+#define MART 'M'
+#define CENTER 'C'
+
+typedef struct coordinates
+{
+    int x, y;
+} coordinates_t;
+
+typedef struct cost_node
+{
+    int priority;
+    coordinates_t coords;
+    bool visited;
+    struct cost_node* next;
+} cost_node_t;
 
 typedef struct map
 {
     // This 2D array is how the map will actually be stored and represented in the terminal.
     char mapArray[HEIGHT][WIDTH];
+
+    // This 2D array stores the cost map for the PC.
+    cost_node_t playerCostMap[HEIGHT][WIDTH];
+
+    // This 2D array stores the cost map for the Rivals.
+    cost_node_t rivalCostMap[HEIGHT][WIDTH];
+
+    // This 2D array stores the cost map for the Hikers.
+    cost_node_t hikerCostMap[HEIGHT][WIDTH];
 
     // The following variables store the coordinates of map's exits.
     int northExit[2];
@@ -61,7 +88,18 @@ typedef struct map
     // The following variables store the 'source' coordinates of the forest regions.
     int forestOne[2];
     int forestTwo[2];
+
+    // This variable stores the combined length of N-S and the E-W paths.
+    int pathCount;
 } map_t;
+
+typedef struct pc
+{
+    int xPos;
+    int yPos;
+    char player;
+    char previousTerrain;
+} pc_t;
 
 // Function to initialize the map with rock borders and filled with clearings.
 void initializeMap(map_t *m);
@@ -111,6 +149,9 @@ int generateSeed();
 // Function to print the map with color.
 void printColor(char ch);
 
+// Function to randomly choose a location on a road (and not on the border) for the player character to be generated.
+void generatePC(pc_t *p, map_t *m);
+
 // Function to print the contents of the map.
 void printMap(map_t *m);
 
@@ -118,6 +159,27 @@ void printMap(map_t *m);
 void seededGeneration(map_t *m);
 
 // Function to randomly generate the map.
-void randomGeneration(map_t *m);
+void randomGeneration(map_t *m, pc_t *p);
+
+// Initialize the cost maps to NULL at every position in the 2D array.
+void initializeCostMaps(map_t *m);
+
+// Function to initialize the cost map for the PC.
+void initializePlayerCostMap(map_t *m);
+
+// Function to initialize the cost map for the Rivals.
+void initializeRivalCostMap(map_t *m);
+
+// Function to initialize the cost map for the Hikers.
+void initializeHikerCostMap(map_t *m);
+
+// Function to print the Player's cost map.
+void printPlayerCostMap(map_t *m);
+
+// Function to print the Rival's cost map.
+void printRivalCostMap(map_t *m);
+
+// Function to print the Hiker's cost map.
+void printHikerCostMap(map_t *m);
 
 #endif

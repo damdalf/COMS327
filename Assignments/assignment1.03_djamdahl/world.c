@@ -665,3 +665,4 @@ void moveToMap(char userInput, map_t *world[WORLD_SIZE][WORLD_SIZE], int i, int 
         }
     }
 }
+

@@ -16,4 +16,60 @@
 	the result of a mistake on the TA's end. Thus, no change to my code
 	was neccessary.
 02/20/22:
+	Looked more into Dijkstra's alogirthm, but have not implemented it
+	into my solution yet. However, I did implement the random generation
+	of the PC's position in the starting map, as that was the only map
+	where it was specified that we needed to do this.
+02/22/22:
+	Current plan is to make use of Professor Sheaffer's heap.c code,
+	create an int array for the playerCostMapp[][], rivalCostMap[][],
+	and the hikerCostMap[][] and have all of these be attributes of the
+	map's struct. Once the terrain map has been initialized, simply go
+	through this terrain map and replace the symbols of the terrain map
+	with the corresponding costs IN THE THREE NEW COST MAP ATTRIBUTES,
+	the actual terrain map will be left unchanged. From here, I plan to
+	rely upon the abstraction of Sheaffer's min heap (ignoring how it
+	works, and just accepting that it does and doing my best to 
+	understand the functions he has provided), and the many resources
+	regarding using Disktra's algorithm with a min heap. Thus, the most 
+	difficult thing that I am forseeing is finding a way to continuously
+	ensure that we are within bounds when checking any of the EIGHT
+	possible edges that nearly all of the terrain-entries should have,
+	obviously not counting those that are borders or inaccesible types
+	for the PC / Rival. I plan to initialize my costMap copies as NULL
+	as Professor Sheaffer's Dijkstra's code checks if terrain-entries
+	are NOT NULL. Once initialized as NULL, only accesible / non-border
+	terrain types will be assigned their corresponding cost based on the
+	character that the map is for. Thus, I should never check out of
+	bounds, and should be able to greatly rely upon Professor Sheaffer's
+	code; simply plugging in the weight values into the queue / heap as
+	I go through Dijkstra's algorithm.
+02/23/22 @ 9:53 PM:
+	Changed plans from the above entry, I have chosen to initialize the three
+	cost maps as INT_MAX, as int values can not be initialized as NULL. As of
+	now, I have implemented the three cost maps as attributes of the map_t
+	struct, a function that initializes all entries of the three cost maps
+	to INT_MAX, separate functions to initialize the accessible terrain
+	entries to their corresponding int cost amounts, and three different
+	functions to print these individual cost maps. From here, I plan to use
+	Professor Sheaffer's heap implementation and write my own implementation
+	of Dijkstra's algorithm.
+02/23/22 @ 11:07 PM:
+	Added a struct called cost_node_t which has the attributes int value and
+	bool visited. Changed the cost map int arrays to be arrays of these new
+	cost_node_t structs. Also changed the corresponding cost map functions
+	to function with these new cost_node_t structs. Additionally, I have added
+	Professor Sheaffer's heap.h and heap.c files in my own project. Now, it is
+	time to try and implement a working Dijkstra's implementation.
+02/23/22 @ 6:35 AM:
+	While I tried using Sheaffer's code, I was unable to. Thus, I created my 
+	priority queue based off of one that I found on GeeksForGeeks, which
+	seems to work just fine. However, I was unable to get the generation
+	of the Rival and Hiker cost maps to work using Dijkstra's algorithm.
+	As of now, I can only (usually) generate a single amount of costs
+	all-around the PC. For some reason, that I cannot figure out, my
+	code does not continue searching past the initial neighbors of the
+	PC. However, it is now six in the morning, and I want to ensure that 
+	get at least something submitted prior to the TA's beginning grading.
+	
 	

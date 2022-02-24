@@ -1,0 +1,4 @@
+For this assignment we were tasked with creating cost maps that would display the costs for each terrain entry in our terrain map, from the PC's location within said terrain map. While I was able to randomly generate the location of the PC into my terrain map and translate said
+terrain map into a 'base' cost map with the approriate conversions for the player, I was unable to generate the cost maps for the Rival and Hiker NPCs using Dijkstra's algorithm. While I was advised to use Professor Sheaffer's code, I was unable to comprehend any of his C 
+wizardry. As a result, I tried making my own priority queue implementation based off of one I found on GeeksForGeeks.com, but this ended up failing miserably (and painfully). My code is only able to (on average) generate the cost map equivalents one-time around the PC (0). I
+apologize for whichever TA has to grade this poorly done assignment... I tried.

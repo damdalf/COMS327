@@ -553,7 +553,7 @@ void addRandom(map_t *m)
     {
         for (j = 0; j < WIDTH; j++)
         {
-            if (m->mapArray[i][j] != '#' && m->mapArray[i][j] != 'M' && m->mapArray[i][j] != 'C' && m->mapArray[i][j] != '%' )
+            if (m->mapArray[i][j] != '#' && m->mapArray[i][j] != 'M' && m->mapArray[i][j] != 'C' && m->mapArray[i][j] != '%' && m->mapArray[i][j] != '^')
             {
                 odds = rand() % 90;
 
@@ -640,7 +640,7 @@ void generatePC(pc_t *p, map_t *m)
     {
         for (j = 0; j < WIDTH; j++)
         {
-            if (m->mapArray[i][j] == PATH)
+            if (m->mapArray[i][j] == PATH && i != 0 && i != 20 && j != 0 && j != 79)
             {
                 xPathCoordinates[l] = i;
                 yPathCoordinates[l] = j;
@@ -653,6 +653,13 @@ void generatePC(pc_t *p, map_t *m)
     i = rand() % m->pathCount;
     p->xPos = xPathCoordinates[i];
     p->yPos = yPathCoordinates[i];
+
+    if (p->yPos == 0)
+    {
+        generatePC(p, m);
+    }
+
+    p->previousTerrain = m->mapArray[p->xPos][p->yPos];
     // Place the PC in the map.
     m->mapArray[p->xPos][p->yPos] = PLAYER;
 
@@ -714,3 +721,231 @@ void randomGeneration(map_t *m, pc_t *p)
     printMap(m);
 }
 
+// Initialize the cost maps to INT_MAX at every position in the 2D array.
+void initializeCostMaps(map_t *m)
+{
+    int i, j;
+    for (i = 0; i < HEIGHT; i++)
+    {
+        for (j = 0; j < WIDTH; j++)
+        {
+            m->playerCostMap[i][j].priority = INT_MAX;
+            m->hikerCostMap[i][j].priority = INT_MAX;
+            m->rivalCostMap[i][j].priority = INT_MAX;
+            m->playerCostMap[i][j].visited = false;
+            m->hikerCostMap[i][j].visited = false;
+            m->rivalCostMap[i][j].visited = false;
+        }
+    }
+}
+
+// Function to initialize the cost map for the PC.
+void initializePlayerCostMap(map_t *m)
+{
+    int i, j;
+    for (i = 0; i < 399; i++)
+    {
+        for (j = 0; j < 399; j++)
+        {
+            switch(m->mapArray[i][j])
+            {
+                case BORDER: // inaccessible terrain type for the PC
+                    break;
+                case TREE: // inaccessible terrain type for the PC
+                    break;
+                case PATH:
+                    m->playerCostMap[i][j].priority = 10;
+                    break;
+                case MART:
+                    m->playerCostMap[i][j].priority = 10;
+                    break;
+                case CENTER:
+                    m->playerCostMap[i][j].priority = 10;
+                    break;
+                case GRASS:
+                    m->playerCostMap[i][j].priority = 20;
+                    break;
+                case CLEARING:
+                    m->playerCostMap[i][j].priority = 10;
+                    break;
+                case ROCK: // inaccessible terrain type for the PC
+                    break;
+                case FLOWER:
+                    m->playerCostMap[i][j].priority = 10;
+                    break;
+                case PLAYER:
+                    m->playerCostMap[i][j].priority = 0;
+                    break;
+            }
+        }
+    }
+}
+
+// Function to initialize the cost map for the Rivals.
+void initializeRivalCostMap(map_t *m)
+{
+    int i, j;
+    for (i = 0; i < 399; i++)
+    {
+        for (j = 0; j < 399; j++)
+        {
+            switch(m->mapArray[i][j])
+            {
+                case BORDER: // inaccessible terrain type for the Rival
+                    break;
+                case TREE: // inaccessible terrain type for the Rival
+                    break;
+                case PATH:
+                    m->rivalCostMap[i][j].priority = 10;
+                    break;
+                case MART: // inaccessible terrain type for the Rival
+                    break;
+                case CENTER: // inaccessible terrain type for the Rival
+                    break;
+                case GRASS:
+                    m->rivalCostMap[i][j].priority = 20;
+                    break;
+                case CLEARING:
+                    m->rivalCostMap[i][j].priority = 10;
+                    break;
+                case ROCK: // inaccessible terrain type for the Rival
+                    break;
+                case FLOWER:
+                    m->rivalCostMap[i][j].priority = 10;
+                    break;
+                case PLAYER:
+                    m->rivalCostMap[i][j].priority = 0;
+                    break;
+            }
+        }
+    }
+}
+
+// Function to initialize the cost map for the Hikers.
+void initializeHikerCostMap(map_t *m)
+{
+    int i, j;
+    for (i = 0; i < 399; i++)
+    {
+        for (j = 0; j < 399; j++)
+        {
+            switch(m->mapArray[i][j])
+            {
+                case BORDER: // inaccessible terrain type for the Hiker
+                    break;
+                case TREE:
+                    m->hikerCostMap[i][j].priority = 15;
+                    break;
+                case PATH:
+                    m->hikerCostMap[i][j].priority = 10;
+                    break;
+                case MART: // inaccessible terrain type for the Hiker
+                    break;
+                case CENTER: // inaccessible terrain type for the Hiker
+                    break;
+                case GRASS:
+                    m->hikerCostMap[i][j].priority = 15;
+                    break;
+                case CLEARING:
+                    m->hikerCostMap[i][j].priority = 10;
+                    break;
+                case ROCK:
+                    m->hikerCostMap[i][j].priority = 15;
+                    break;
+                case FLOWER:
+                    m->hikerCostMap[i][j].priority = 10;
+                    break;
+                case PLAYER:
+                    m->hikerCostMap[i][j].priority = 0;
+                    break;
+            }
+        }
+    }
+}
+
+// Function to print the Player's cost map.
+void printPlayerCostMap(map_t *m)
+{
+    printf("PLAYER COST MAP:\n");
+
+    int i, j;
+
+    for (i = 0; i < HEIGHT; i++)
+    {
+        for (j = 0; j < WIDTH; j++)
+        {
+            if (m->playerCostMap[i][j].priority == 0)
+            {
+                printf(B_RED "%2d ", m->playerCostMap[i][j].priority);
+                printf(RESET);
+            }
+            else if (m->playerCostMap[i][j].priority == INT_MAX)
+            {
+                printf("   ");
+            }
+            else printf("%2d ", m->playerCostMap[i][j].priority % 100);
+        }
+
+        printf("\n");
+    }
+
+    printf("\n");
+}
+
+// Function to print the Rival's cost map.
+void printRivalCostMap(map_t *m)
+{
+    printf("RIVAL COST MAP:\n");
+
+    int i, j;
+
+    for (i = 0; i < HEIGHT; i++)
+    {
+        for (j = 0; j < WIDTH; j++)
+        {
+            if (m->rivalCostMap[i][j].priority == 0)
+            {
+                printf(B_RED "%2d ", m->rivalCostMap[i][j].priority);
+                printf(RESET);
+            }
+            else if (m->rivalCostMap[i][j].priority == INT_MAX)
+            {
+                printf("   ");
+            }
+            else printf("%2d ", m->rivalCostMap[i][j].priority % 100);
+        }
+
+        printf("\n");
+    }
+
+    printf("\n");
+}
+
+// Function to print the Hiker's cost map.
+void printHikerCostMap(map_t *m)
+{
+    printf("HIKER COST MAP:\n");
+
+    int i, j;
+
+    for (i = 0; i < HEIGHT; i++)
+    {
+        for (j = 0; j < WIDTH; j++)
+        {
+            if (m->hikerCostMap[i][j].priority == 0)
+            {
+                printf(B_RED "%2d ", m->hikerCostMap[i][j].priority);
+                printf(RESET);
+            }
+            else if (m->hikerCostMap[i][j].priority == INT_MAX)
+            {
+                printf("   ");
+            }
+            else printf("%2d ", m->hikerCostMap[i][j].priority % 100);
+        }
+
+        printf("\n");
+    }
+
+    printf("\n");
+}
