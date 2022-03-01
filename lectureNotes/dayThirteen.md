@@ -131,3 +131,20 @@ int main(int argc, char *argv[])
 
 }
 ```
+
+* **A better explanation of type promotion:**
+    * Occurs anytime an operation is performed on certain data types because the compiler is stupid and lazy.
+```c
+    int main(int argc, char *argv[])
+    {
+        /*
+        * At first look, the expression (a*b)/c seems to cause arithmetic overflow because signed characters can have values only from -128 to 127 (in most of the C compilers), and the value of subexpression ‘(a*b)’ is 1200 which is greater than 128. But integer promotion happens here in arithmetic done on char types and we get the appropriate result without any overflow.
+        */
+
+        char a = 30, b = 40, c = 10;
+        char d = (a * b) / c;
+        printf("%d\n", d);
+
+        return 0;
+    }
+```
