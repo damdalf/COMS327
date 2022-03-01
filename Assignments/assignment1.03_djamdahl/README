@@ -1,4 +1,16 @@
-For this assignment we were tasked with creating cost maps that would display the costs for each terrain entry in our terrain map, from the PC's location within said terrain map. While I was able to randomly generate the location of the PC into my terrain map and translate said
-terrain map into a 'base' cost map with the approriate conversions for the player, I was unable to generate the cost maps for the Rival and Hiker NPCs using Dijkstra's algorithm. While I was advised to use Professor Sheaffer's code, I was unable to comprehend any of his C 
-wizardry. As a result, I tried making my own priority queue implementation based off of one I found on GeeksForGeeks.com, but this ended up failing miserably (and painfully). My code is only able to (on average) generate the cost map equivalents one-time around the PC (0). I
-apologize for whichever TA has to grade this poorly done assignment... I tried.
+For this assignment we were tasked with creating cost maps that would
+display the costs for each terrain entry in our terrain map, from the
+PC's location within said terrain map. Specifically, we were tasked 
+with creating two different cost maps for the two different kinds of
+NPCs that we have established for this Pokemon game; those being
+Rivals and Hikers. These two NPCs have different movement abilities,
+as Hikers are the only characters in the game that are capable of 
+traveling through certain terrain, such as forests and over large
+rocks, as these terrains are inaccessible for the PC and Rival NPCS.
+
+I completed this assignment by using a singly-linked list implementation
+for my priority queue, and my own personal solution of using Dijkstra's
+algorithm that I based off of some pseudocode that I found on the 
+internet. While I didn't do anything too advanced, I created several
+different structs to allow my solution to work, and I believe my solution
+ended up being very intuitive.

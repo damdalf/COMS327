@@ -71,26 +71,5 @@
 	code does not continue searching past the initial neighbors of the
 	PC. However, it is now six in the morning, and I want to ensure that 
 	get at least something submitted prior to the TA's beginning grading.
-02/27/22:
-	As it turns out, there was only one small mistake in my code for my
-	singly-linked list priority queue, and one small mistake in my code
-	for Dijkstra’s algorithm. There was an issue within my code for the
-	singly-linked list implementation of my priority queue, specifically
-	within my 'push' method. I simply forgot to assign certain members
-	of the struct that I created to represent each 'entry' / node for
-	priority queue. Very trivial mistake, and easy fix. The second error
-	that I found in my code was that every time I would create or append
-	a new cost_node to my priority queue (the final steps when checking
-	the directions from the current node) I was passing
-	m->costMap.coords.x & m->costMap.coords.y as arguments for the 
-	construction of the nodes. This was a problem because these members
-	had never been assigned any value once they had been created, which
-	I plan to change later, but am leaving out of the program for this
-	time-being as I am asking for a reconsideration of my grade after
-	discovering these very trivial mistakes, and want to highlight
-	how close my code was to working properly. To solve this, I simply
-	used the integer variables 'x' and 'y' that are local to each
-	Dijkstra function. This works because of the fact that both variables 
-	are assigned from the lowest cost / highest priority node's 'coords'
-	after being peeked, which occurs at the beginning of each while loop
-	iteration.
+	
+	

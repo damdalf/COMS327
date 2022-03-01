@@ -46,7 +46,18 @@ int main(int argc, char *argv[])
     printf("COST MAPS:\n");
     moveToMap(userInput, world, i, j);
 
+    // Ensuring that the priority queue implementation works.
+    /*
+    cost_node_t *pq = newNode(0, 0, 10);
+    push(&pq, 1, 1, 15);
+    push(&pq, 2, 2, 20);
+
+    while(!isEmpty(&pq))
+    {
+        printf("%d ", pop(&pq));
+    }
+     */
+
     return 0;
 }
-
 

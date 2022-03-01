@@ -866,7 +866,7 @@ void initializeHikerCostMap(map_t *m)
 // Function to print the Player's cost map.
 void printPlayerCostMap(map_t *m)
 {
-    printf("PLAYER COST MAP:\n");
+    printf("TRANSLATED COST MAP FROM TERRAIN MAP:\n");
 
     int i, j;
 

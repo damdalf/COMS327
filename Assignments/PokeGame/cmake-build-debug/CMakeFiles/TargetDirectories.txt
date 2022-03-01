@@ -1,3 +1,0 @@
-/Users/devin/Desktop/school/SPRING22/COMS327/Assignments/PokeGame/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/devin/Desktop/school/SPRING22/COMS327/Assignments/PokeGame/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/devin/Desktop/school/SPRING22/COMS327/Assignments/PokeGame/cmake-build-debug/CMakeFiles/PokeGame.dir

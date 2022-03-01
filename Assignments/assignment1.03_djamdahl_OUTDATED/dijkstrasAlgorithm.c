@@ -37,8 +37,8 @@ void dijkstraRival(map_t *m, pc_t *p)
                 if (newDist < distance[x - 1][y])
                 {
                     distance[x - 1][y] = newDist;
-                    if (pq == NULL) pq = newNode(x - 1, y, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x - 1, y, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->rivalCostMap[x - 1][y].coords.x, m->rivalCostMap[x - 1][y].coords.y, newDist);
+                    else push(&pq, m->rivalCostMap[x - 1][y].coords.x, m->rivalCostMap[x - 1][y].coords.y, newDist);
                 }
             }
         }
@@ -52,8 +52,8 @@ void dijkstraRival(map_t *m, pc_t *p)
                 if (newDist < distance[x - 1][y + 1])
                 {
                     distance[x - 1][y + 1] = newDist;
-                    if (pq == NULL) pq = newNode(x - 1, y + 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x - 1, y + 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->rivalCostMap[x - 1][y + 1].coords.x, m->rivalCostMap[x - 1][y + 1].coords.y, newDist);
+                    else push(&pq, m->rivalCostMap[x - 1][y + 1].coords.x, m->rivalCostMap[x - 1][y + 1].coords.y, newDist);
                 }
             }
         }
@@ -67,8 +67,8 @@ void dijkstraRival(map_t *m, pc_t *p)
                 if (newDist < distance[x][y + 1])
                 {
                     distance[x][y + 1] = newDist;
-                    if (pq == NULL) pq = newNode(x, y + 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x, y + 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->rivalCostMap[x][y + 1].coords.x, m->rivalCostMap[x][y + 1].coords.y, newDist);
+                    else push(&pq, m->rivalCostMap[x][y + 1].coords.x, m->rivalCostMap[x][y + 1].coords.y, newDist);
                 }
             }
         }
@@ -82,8 +82,8 @@ void dijkstraRival(map_t *m, pc_t *p)
                 if (newDist < distance[x + 1][y + 1])
                 {
                     distance[x + 1][y + 1] = newDist;
-                    if (pq == NULL) pq = newNode(x + 1, y + 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x + 1, y + 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->rivalCostMap[x + 1][y + 1].coords.x, m->rivalCostMap[x + 1][y + 1].coords.y, newDist);
+                    else push(&pq, m->rivalCostMap[x + 1][y + 1].coords.x, m->rivalCostMap[x + 1][y + 1].coords.y, newDist);
                 }
             }
         }
@@ -97,8 +97,8 @@ void dijkstraRival(map_t *m, pc_t *p)
                 if (newDist < distance[x + 1][y])
                 {
                     distance[x + 1][y] = newDist;
-                    if (pq == NULL) pq = newNode(x + 1, y, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x + 1, y, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->rivalCostMap[x + 1][y].coords.x, m->rivalCostMap[x + 1][y].coords.y, newDist);
+                    else push(&pq, m->rivalCostMap[x + 1][y].coords.x, m->rivalCostMap[x + 1][y].coords.y, newDist);
                 }
             }
         }
@@ -112,8 +112,8 @@ void dijkstraRival(map_t *m, pc_t *p)
                 if (newDist < distance[x + 1][y - 1])
                 {
                     distance[x + 1][y - 1] = newDist;
-                    if (pq == NULL) pq = newNode(x + 1, y - 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x + 1, y - 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->rivalCostMap[x + 1][y - 1].coords.x, m->rivalCostMap[x + 1][y - 1].coords.y, newDist);
+                    else push(&pq, m->rivalCostMap[x + 1][y - 1].coords.x, m->rivalCostMap[x + 1][y - 1].coords.y, newDist);
                 }
             }
         }
@@ -127,8 +127,8 @@ void dijkstraRival(map_t *m, pc_t *p)
                 if (newDist < distance[x][y - 1])
                 {
                     distance[x][y - 1] = newDist;
-                    if (pq == NULL) pq = newNode(x, y - 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x, y - 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->rivalCostMap[x][y - 1].coords.x, m->rivalCostMap[x][y - 1].coords.y, newDist);
+                    else push(&pq, m->rivalCostMap[x][y - 1].coords.x, m->rivalCostMap[x][y - 1].coords.y, newDist);
                 }
             }
         }
@@ -142,8 +142,8 @@ void dijkstraRival(map_t *m, pc_t *p)
                 if (newDist < distance[x - 1][y - 1])
                 {
                     distance[x - 1][y - 1] = newDist;
-                    if (pq == NULL) pq = newNode(x - 1, y - 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x - 1, y - 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->rivalCostMap[x - 1][y - 1].coords.x, m->rivalCostMap[x - 1][y - 1].coords.y, newDist);
+                    else push(&pq, m->rivalCostMap[x - 1][y - 1].coords.x, m->rivalCostMap[x - 1][y - 1].coords.y, newDist);
                 }
             }
         }
@@ -192,8 +192,8 @@ void dijkstraHiker(map_t *m, pc_t *p)
                 if (newDist < distance[x - 1][y])
                 {
                     distance[x - 1][y] = newDist;
-                    if (pq == NULL) pq = newNode(x - 1, y, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x - 1, y, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->hikerCostMap[x - 1][y].coords.x, m->hikerCostMap[x - 1][y].coords.y, newDist);
+                    else push(&pq, m->hikerCostMap[x - 1][y].coords.x, m->hikerCostMap[x - 1][y].coords.y, newDist);
                 }
             }
         }
@@ -207,8 +207,8 @@ void dijkstraHiker(map_t *m, pc_t *p)
                 if (newDist < distance[x - 1][y + 1])
                 {
                     distance[x - 1][y + 1] = newDist;
-                    if (pq == NULL) pq = newNode(x - 1, y + 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x - 1, y + 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->hikerCostMap[x - 1][y + 1].coords.x, m->hikerCostMap[x - 1][y + 1].coords.y, newDist);
+                    else push(&pq, m->hikerCostMap[x - 1][y + 1].coords.x, m->hikerCostMap[x - 1][y + 1].coords.y, newDist);
                 }
             }
         }
@@ -222,8 +222,8 @@ void dijkstraHiker(map_t *m, pc_t *p)
                 if (newDist < distance[x][y + 1])
                 {
                     distance[x][y + 1] = newDist;
-                    if (pq == NULL) pq = newNode(x, y + 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x, y + 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->hikerCostMap[x][y + 1].coords.x, m->hikerCostMap[x][y + 1].coords.y, newDist);
+                    else push(&pq, m->hikerCostMap[x][y + 1].coords.x, m->hikerCostMap[x][y + 1].coords.y, newDist);
                 }
             }
         }
@@ -237,8 +237,8 @@ void dijkstraHiker(map_t *m, pc_t *p)
                 if (newDist < distance[x + 1][y + 1])
                 {
                     distance[x + 1][y + 1] = newDist;
-                    if (pq == NULL) pq = newNode(x + 1, y + 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x + 1, y + 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->hikerCostMap[x + 1][y + 1].coords.x, m->hikerCostMap[x + 1][y + 1].coords.y, newDist);
+                    else push(&pq, m->hikerCostMap[x + 1][y + 1].coords.x, m->hikerCostMap[x + 1][y + 1].coords.y, newDist);
                 }
             }
         }
@@ -252,8 +252,8 @@ void dijkstraHiker(map_t *m, pc_t *p)
                 if (newDist < distance[x + 1][y])
                 {
                     distance[x + 1][y] = newDist;
-                    if (pq == NULL) pq = newNode(x + 1, y, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x + 1, y, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->hikerCostMap[x + 1][y].coords.x, m->hikerCostMap[x + 1][y].coords.y, newDist);
+                    else push(&pq, m->hikerCostMap[x + 1][y].coords.x, m->hikerCostMap[x + 1][y].coords.y, newDist);
                 }
             }
         }
@@ -267,8 +267,8 @@ void dijkstraHiker(map_t *m, pc_t *p)
                 if (newDist < distance[x + 1][y - 1])
                 {
                     distance[x + 1][y - 1] = newDist;
-                    if (pq == NULL) pq = newNode(x + 1, y - 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x + 1, y - 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->hikerCostMap[x + 1][y - 1].coords.x, m->hikerCostMap[x + 1][y - 1].coords.y, newDist);
+                    else push(&pq, m->hikerCostMap[x + 1][y - 1].coords.x, m->hikerCostMap[x + 1][y - 1].coords.y, newDist);
                 }
             }
         }
@@ -282,8 +282,8 @@ void dijkstraHiker(map_t *m, pc_t *p)
                 if (newDist < distance[x][y - 1])
                 {
                     distance[x][y - 1] = newDist;
-                    if (pq == NULL) pq = newNode(x, y - 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x, y - 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->hikerCostMap[x][y - 1].coords.x, m->hikerCostMap[x][y - 1].coords.y, newDist);
+                    else push(&pq, m->hikerCostMap[x][y - 1].coords.x, m->hikerCostMap[x][y - 1].coords.y, newDist);
                 }
             }
         }
@@ -297,8 +297,8 @@ void dijkstraHiker(map_t *m, pc_t *p)
                 if (newDist < distance[x - 1][y - 1])
                 {
                     distance[x - 1][y - 1] = newDist;
-                    if (pq == NULL) pq = newNode(x - 1, y - 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
-                    else push(&pq, x - 1, y - 1, newDist); // TODO THESE LINES WERE THE ISSUES IN MY 1.03 SUBMISSION
+                    if (pq == NULL) pq = newNode(m->hikerCostMap[x - 1][y - 1].coords.x, m->hikerCostMap[x - 1][y - 1].coords.y, newDist);
+                    else push(&pq, m->hikerCostMap[x - 1][y - 1].coords.x, m->hikerCostMap[x - 1][y - 1].coords.y, newDist);
                 }
             }
         }
