@@ -37,8 +37,6 @@
 
 #define HEIGHT 21
 #define WIDTH 80
-#define NUM_TRAINERS 10
-
 #define BORDER '%'
 #define PATH '#'
 #define TREE '^'
@@ -46,16 +44,9 @@
 #define GRASS ':'
 #define ROCK 'O'
 #define FLOWER '*'
+#define PLAYER '@'
 #define MART 'M'
 #define CENTER 'C'
-
-#define PLAYER '@'
-#define HIKERS 'h'
-#define RIVALS 'r'
-#define PACERS 'p'
-#define WANDERERS 'w'
-#define STATIONARIES 's'
-#define RANDOM_WALKER 'n'
 
 typedef struct coordinates
 {
@@ -165,19 +156,8 @@ int generateSeed();
 // Function to print the map with color.
 void printColor(char ch);
 
-/*
- * Additionally, randomly generates a single Trainer into the map based off of their corresponding constraints:
- *  - No NPC may spawn or move into a cell wherein the movement cost for that NPC type is infinity.
- *  - No NPC will spawn in a cell occupied by another character.
- *  - No NPC will spawn in or move to an exit or border.
- */
-void generateNPC(map_t *m, int k);
-
-// Function to generate each Trainer character using 'generateCharacter()' based on the NUM_TRAINERS.
-void generateNPCs(map_t *m);
-
 // Function to randomly choose a location on a road (and not on the border) for the player character to be generated.
-void generatePC(map_t *m);
+void generatePC( map_t *m);
 
 // Function to print the contents of the map.
 void printMap(map_t *m);

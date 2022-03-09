@@ -39,13 +39,13 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug/
+cmake_ninja_workdir = /Users/devin/Desktop/school/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug/
 
 #############################################
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame -B/Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug
+  COMMAND = cd /Users/devin/Desktop/school/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/devin/Desktop/school/Spring22/COMS327/Assignments/327PokeGame -B/Users/devin/Desktop/school/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -57,7 +57,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/devin/Desktop/school/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -72,31 +72,31 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 
 build cmake_object_order_depends_target_327PokeGame: phony || CMakeFiles/327PokeGame.dir
 
-build CMakeFiles/327PokeGame.dir/poke327.c.o: C_COMPILER__327PokeGame_Debug /Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame/poke327.c || cmake_object_order_depends_target_327PokeGame
+build CMakeFiles/327PokeGame.dir/poke327.c.o: C_COMPILER__327PokeGame_Debug /Users/devin/Desktop/school/Spring22/COMS327/Assignments/327PokeGame/poke327.c || cmake_object_order_depends_target_327PokeGame
   DEP_FILE = CMakeFiles/327PokeGame.dir/poke327.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu99
   OBJECT_DIR = CMakeFiles/327PokeGame.dir
   OBJECT_FILE_DIR = CMakeFiles/327PokeGame.dir
 
-build CMakeFiles/327PokeGame.dir/map.c.o: C_COMPILER__327PokeGame_Debug /Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame/map.c || cmake_object_order_depends_target_327PokeGame
+build CMakeFiles/327PokeGame.dir/map.c.o: C_COMPILER__327PokeGame_Debug /Users/devin/Desktop/school/Spring22/COMS327/Assignments/327PokeGame/map.c || cmake_object_order_depends_target_327PokeGame
   DEP_FILE = CMakeFiles/327PokeGame.dir/map.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu99
   OBJECT_DIR = CMakeFiles/327PokeGame.dir
   OBJECT_FILE_DIR = CMakeFiles/327PokeGame.dir
 
-build CMakeFiles/327PokeGame.dir/world.c.o: C_COMPILER__327PokeGame_Debug /Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame/world.c || cmake_object_order_depends_target_327PokeGame
+build CMakeFiles/327PokeGame.dir/world.c.o: C_COMPILER__327PokeGame_Debug /Users/devin/Desktop/school/Spring22/COMS327/Assignments/327PokeGame/world.c || cmake_object_order_depends_target_327PokeGame
   DEP_FILE = CMakeFiles/327PokeGame.dir/world.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu99
   OBJECT_DIR = CMakeFiles/327PokeGame.dir
   OBJECT_FILE_DIR = CMakeFiles/327PokeGame.dir
 
-build CMakeFiles/327PokeGame.dir/priorityQueue.c.o: C_COMPILER__327PokeGame_Debug /Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame/priorityQueue.c || cmake_object_order_depends_target_327PokeGame
+build CMakeFiles/327PokeGame.dir/priorityQueue.c.o: C_COMPILER__327PokeGame_Debug /Users/devin/Desktop/school/Spring22/COMS327/Assignments/327PokeGame/priorityQueue.c || cmake_object_order_depends_target_327PokeGame
   DEP_FILE = CMakeFiles/327PokeGame.dir/priorityQueue.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu99
   OBJECT_DIR = CMakeFiles/327PokeGame.dir
   OBJECT_FILE_DIR = CMakeFiles/327PokeGame.dir
 
-build CMakeFiles/327PokeGame.dir/dijkstrasAlgorithm.c.o: C_COMPILER__327PokeGame_Debug /Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame/dijkstrasAlgorithm.c || cmake_object_order_depends_target_327PokeGame
+build CMakeFiles/327PokeGame.dir/dijkstrasAlgorithm.c.o: C_COMPILER__327PokeGame_Debug /Users/devin/Desktop/school/Spring22/COMS327/Assignments/327PokeGame/dijkstrasAlgorithm.c || cmake_object_order_depends_target_327PokeGame
   DEP_FILE = CMakeFiles/327PokeGame.dir/dijkstrasAlgorithm.c.o.d
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu99
   OBJECT_DIR = CMakeFiles/327PokeGame.dir
@@ -127,7 +127,7 @@ build 327PokeGame: C_EXECUTABLE_LINKER__327PokeGame_Debug CMakeFiles/327PokeGame
 # =============================================================================
 
 #############################################
-# Folder: /Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug
+# Folder: /Users/devin/Desktop/school/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug
 
 build all: phony 327PokeGame
 

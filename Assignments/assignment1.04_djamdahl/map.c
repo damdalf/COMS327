@@ -792,7 +792,7 @@ void randomGeneration(map_t *m)
 
     dijkstraTrainer(m);
     dijkstraPC(m);
-
+    
     printPlayerCostMap(m);
     printTrainerCostMaps(m);
     generateNPCs(m);

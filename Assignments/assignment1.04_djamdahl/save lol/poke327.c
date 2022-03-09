@@ -6,6 +6,7 @@
 
 #include "map.h"
 #include "world.h"
+#include "dijkstrasAlgorithm.h"
 
 int main(int argc, char *argv[])
 {
@@ -25,6 +26,17 @@ int main(int argc, char *argv[])
 
     world[i][j] = malloc(sizeof(*world[HEIGHT][WIDTH]));
     randomGeneration(world[i][j]);
+
+    initializeTrainers(world[i][j]);
+    initializeCostMaps(world[i][j]);
+    initializePlayerCostMap(world[i][j]);
+    initializeTrainerCostMaps(world[i][j]);
+
+    dijkstraTrainer(world[i][j]);
+    dijkstraPC(world[i][j]);
+
+    printPlayerCostMap(world[i][j]);
+    printTrainerCostMaps(world[i][j]);
 
     printf("COORDINATES: (%d, %d).\n\n", j, i);
     printCommands();

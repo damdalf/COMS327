@@ -1,0 +1,62 @@
+There is a difference between creating a String using char[] and char*. 
+If made with char*, then it is a String literal. Trying to change any 
+part of a String literal results in an instant crash. The String is 
+immutable when char*. Recall that when allocating any memory for a 
+String, you must add one to the strlen() for the null byte.
+
+The final index of a String is the length returned by strlen(). Thus, 
+something like i = strlen(s) IS an index of the String s.
+
+Any undefined behavior must be classified as a runtime error. 
+Additionally, ALL Strings need a null byte to be able to terminate. So 
+if you're starting at the end of a String, you need a null byte at the 
+BEGINNING of the String.
+
+When using pointers, it must point to something or be malloced. For 
+example, int *a = 7; is an error. 7 is undefined.
+
+Pointer to a pointer to an int -> 'int **a'. Generally means that you're 
+allocating an array. int **a = malloc(3 * sizeof (*a)); The above line 
+creates an array of ints that is three elements long. When freeing an 
+array defined like this, you need to free the members of the array prior 
+to freeing the array itself.
+
+We know because of Hank, but you can't go around freeing up 
+non-allocated (using malloc) pointers. You also can't free already freed 
+variables, Bobby.
+
+Because we have access to the compiler, manual pages, and our textbook, 
+we will be expected to explain and describe the errors that are present 
+in the exam.
+
+A pointer to a data type is larger than the data type itself. So if you 
+create a pointer to a data type, then assign a var of that datatype to 
+get that pointer, and try to free said var, you will receive an error. 
+You must make the var larger than the pointer and cast it as 'void *' 
+when freeing it.
+
+For the programming questions in which we have to write our own code, 
+expect to not be able to use local helper functions such as strlen(), 
+etc. A for loop will naturally terminate using s[i] as the conditional, 
+when s is a String, as the null byte will cause the loop to exit. 
+Meaning that i will be equal to the index of the null byte when the loop 
+has been exited. This can be very useful. Null byte: '/0'.
+
+How to check if a malloc failed: if (!r = malloc(i + 1)) {
+	// Malloc failes when it cannot allocate storage.
+	// Malloc returns true when it CAN allocate storage.
+	return NULL;
+}
+
+gcc -Wall -Werror file.c -o betterName
+
+Casting is often neccessary when trying to return a value that does not 
+match the return type of the function. This event counts when a variable 
+is a const version of the specified return type.
+
+Test will be about the same size as the practice exam, but will just be 
+two hours long. Professor Sheaffer does not want to grade a two-hour 
+long exam, lol.
+
+Professor Sheaffer thinks this is the most vocational class in this 
+major. Yeah, I don't know about that one.

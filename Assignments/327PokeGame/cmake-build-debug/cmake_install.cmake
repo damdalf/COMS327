@@ -1,4 +1,4 @@
-# Install script for directory: /Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame
+# Install script for directory: /Users/devin/Desktop/school/Spring22/COMS327/Assignments/327PokeGame
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/devin/Desktop/school/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -1,0 +1,44 @@
+For this assignment we were tasked with implementing the ability to move 
+the PC ('@') around the map (ensuring that the PC never leaves the map's 
+border, nor exits to a new map through any of the path exits). 
+Additionally, we were tasked with generating trainers on the map, using 
+a minimum number (10) of trainers to be generated per map, as well as 
+implementing a switch ('numTrainers') allows for a set (integer) number 
+of trainers to be randomly placed throughout the map. Unless 
+'numTrainers' is less than two, we had to guarantee that at LEAST one 
+hiker and one rival would be generated.
+
+------------------------------------------------------------------------------ 
+- hikers: 'h'
+	* Hikers path to the PC by following a max gradient on the hiker 
+	map. 
+- rivals: 'r'
+	* Rivals path to the PC by following a max gradient on the rival 
+	map. 
+- pacers: 'p'
+	* Pacers start with a direction and walk until they hit some 
+	terrain
+	that they cannot traverse, and then they turn around and repeat. 
+- wanderers: 'w'
+	* Wanderers never leave the terrain type they were spawned in. 
+	They have a direction and walk straight ahead to the edge of the 
+	terrain, whereupon they turn in a random direction and repeat. 
+- stationaries: 's'
+	* Stationaries don't move. - random walkers: 'n'
+	* Random walkers move like pacers, but they cross terrain type
+	boundaries. 
+------------------------------------------------------------------------------ 
+CONSTRAINTS:
+ - No character will move into a map cell occupied by 
+another character. 
+- No NPC will spawn in a cell occupied by another 
+character. 
+- No NPC will spawn in or move to an exit.
+- No NPC may spawn or move into a cell wherein the movement cost for that NPC type is 
+infinity. 
+------------------------------------------------------------------------------ 
+GUIDANCE: 
+- The game is driven by a priority queue. Characters are placed 
+in the queue removed according to the time of their next move. The time 
+of the first move is 0. Each subsequent move time is the current time 
+plus the movement cost for the terrain that the character is moving to.

@@ -1,0 +1,90 @@
+------------------------------------------------------------------------------
+
+03/07/22
+------------------------------------------------------------------------------
+I have created my README which outlines the requirements for this 
+assignment, and am now trying to plan out the order in which I will
+add the required functionalities. As of now, since my Dijkstra's
+algorithm only calculates the cost map for the Rival and Hikers,
+I plan to implement the functionality to create the cost map for the
+PC itself, and then add the functionality to actually store the
+shortest path for each 'type' of character. From there, I will then
+begin generating the NPC's into the map and implementing the
+--numTrainers switch.
+
+I have now realized that I will need to create separate structs to
+represent the types of characters in the game, and that each character
+will need to have their own corresponding cost maps and previous node
+arrays. Since the number of trainers that we can have in a map is 
+dynamic, I will need to create an array using double pointer notation
+for each kind of NPC, which is dynamically allocated at runtime.
+------------------------------------------------------------------------------
+STATUS:
+- Dijkstra's aglorithm is implemented for the PC's cost map.
+- Completely restructured my program, in the following ways:
+	* Restructured the 'map' struct to now contain a PC and a 
+	dynamic array containing Trainers.
+		- The 'player_t' struct was changed to 'character_t', and
+		now encompasses all types of characters that we will be
+		in the game. Struct members include:
+			* int xPos
+			* int yPos
+			* char symbol
+			* char previousTerrain
+		- These trainers are then GUARANTEED to contain at least
+		one Hiker and one Rival.
+		- From there, the remaining ten (have not added switch
+		functionality yet) are randomly decided upon.
+	* Refactored 'initializeCostMaps()' to include these changes, 
+	refactored 'initializeHikerCostMap()' and 'initializeRivalCostMap()'
+	into a single function 'initializeTrainerCostMaps()', refactored
+	'printHikerCostMap()' and 'printRivalCostMap()' to a single function
+	'printTrainerCostMaps', refactored 'dijkstraHiker()' and 
+	'dijkstraRival()' into a single function 'dijkstraTrainer()',
+	and added the function 'initializeTrainers()' which handles
+	randomly deciding the types of the trainers.
+------------------------------------------------------------------------------
+03/08/22:
+------------------------------------------------------------------------------
+NOTE: Just realizing that I did not see the 'random walker' type of Trainers,
+will have to adjust changes made in the previous log to include this type
+of Trainer, good catch.
+
+With the above changes in place, it is now time to create a function to
+randomly place the NPC's into the map, in regards to all of the listed
+constraints. From there, it would be best to create a function,
+'findShortestPath()', that keeps track of the list of nodes that the 
+character has traveled to based on the current 'lowest' cost terrain cell.
+
+Once that is implemented, it would be a good idea to implement the
+ '--numTrainers' switch, as that is the last functionality that prevents the
+implementation of the dynamic aspects of this assignment, those being the
+NPC's tracking the PC based on his movements, as well as the ability to move
+the PC in the first place, all in regards to the given constraints.
+------------------------------------------------------------------------------
+STATUS:
+- For modularity sake, implementing a function 'generateNPC()' that 
+generates a single NPC, in accomondation to the corresponding constraints.
+This function is then used in 'generateNPCs()', which loops through the 
+entire array of Trainers and runs 'generateNPC()' each time.
+- Changed Trainer loops from using a hardcoded integer value of 10, to
+using the macro 'NUM_TRAINERS' in order to make the switch to using a minimum 
+and dynamic number of trainers easier. One line changed versus several.
+- Added the new character types to 'printColor()' to add more liveliness to
+the game, and separate NPC's from the environment.
+- Added the following functions to be within 'randomGeneration()':
+	* 'initializeTrainers()'
+	* 'initializeCostMaps()'
+	* 'initializePlayerCostMap()'
+	* 'initializeTrainerCostMaps()'
+	* 'dijkstraTrainer()'
+	* 'dijkstraPC()'
+	* 'printPlayerCostMap()'
+	* 'printTrainerCostMaps()'
+	* 'generateCharacters()'
+- Added the sixth type of Trainer, the 'random walkers'.
+- Added macros for all of the NPC's text-symbols.
+
+// TODO:
+- Implement 'findShortestPath()'.
+- Implement '--numTrainers' switch.

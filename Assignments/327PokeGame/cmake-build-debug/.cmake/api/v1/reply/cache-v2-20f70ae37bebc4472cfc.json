@@ -11,7 +11,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug"
+			"value" : "/Users/devin/Desktop/school/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug"
 		},
 		{
 			"name" : "327PokeGame_IS_TOP_LEVEL",
@@ -35,7 +35,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame"
+			"value" : "/Users/devin/Desktop/school/Spring22/COMS327/Assignments/327PokeGame"
 		},
 		{
 			"name" : "CMAKE_ADDR2LINE",
@@ -91,7 +91,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/devin/Desktop/SCHOOL/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug"
+			"value" : "/Users/devin/Desktop/school/SPRING22/COMS327/Assignments/327PokeGame/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
