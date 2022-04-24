@@ -1,4 +1,4 @@
-# COM S 327 - DAY FOURTEEN: NCURSES LIBRARY | 03/10/2022 |
+# **COM S 327 - DAY FOURTEEN: NCURSES LIBRARY | 03/10/2022 |**
 
 ## **NCURSES BASIC:**
 * ncurses is a libary for C which allows for multiple different functionalities, mainly the greater ability to customize what is displayed in the terminal, allowing our program to move from a simple CLI program to a more 'lively' game with an actual UI.

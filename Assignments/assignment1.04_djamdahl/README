@@ -1,3 +1,9 @@
+I APLOGIZE FOR THE LENGTH OF THIS, BUT I PUT IN A TON OF EFFORT INTO THIS 
+ASSIGNMENT, BOTH IN TIME SPENT PLANNING AND CODING, AND I'D LIKE TO AT LEAST
+HAVE SOMETHING THAT DISPLAYS THIS, SINCE MY CODE WAS A BIT... 'MEH'.
+------------------------------------------------------------------------------ 
+TASK:
+------------------------------------------------------------------------------ 
 For this assignment we were tasked with implementing the ability to move 
 the PC ('@') around the map (ensuring that the PC never leaves the map's 
 border, nor exits to a new map through any of the path exits). 
@@ -7,7 +13,45 @@ implementing a switch ('numTrainers') allows for a set (integer) number
 of trainers to be randomly placed throughout the map. Unless 
 'numTrainers' is less than two, we had to guarantee that at LEAST one 
 hiker and one rival would be generated.
+------------------------------------------------------------------------------ 
+MY SOLUTION: 
+------------------------------------------------------------------------------ 
+First things, first, my code is not perfect. It has some bugs, but I am aware
+of them and am currently trying to resolve them. The most prominent bugs are:
 
+- Occasionally a (or a couple, depending upon the argument passed with the 
+  '--numTrainers' switch random Hiker(s) or Rival(s) will completely stop
+  moving at a random point during the program's execution. While this might
+  be caused by the fact that I have currently avoided using a priority queue
+  to handle the choosing of the next NPC movement to execute / print to the
+  map.
+
+- When there are many Hikers and Rivals in the map, they tend to cluster
+  around the PC, espeically behind the other Hikers and Rivals in odd ways,
+  instead of adding these 'locked' (as of now, until PC movement
+  functionality is implemented in the game in later assignments) Hikers and
+  Rivals that have already made their way to the PC to their cost map and 
+  accounting for them being recognized as an inacessible terrain type (cell
+  with a cost of INT_MAX / infinity). I have tried several different
+  solutions, but none have worked.
+
+While this is ideal, as it allows for a more realistic game by having NPCs
+with the lowest current movement cost make their move first, I wanted to
+first verify that my 'findNextMove()' functions worked accordingly.
+
+I had a very solid game plan, but after going to the CS Help Room yesterday
+and only being able to refer to my classmates for guidance / help, as all but
+one applicable tutor for 327 called in, it kind of fell apart. I went from
+believing in my idea of a solution, to then feeling doubtful and spending far
+too much time trying to put several functionalities into shared functions 
+between all of the NPCs. This was a mistake, as I painfully learned, and have
+now reverted to my original plan of finding 'nextMove' for each NPC
+independent of one another.
+
+I can only hope that the grading for this assignment begins late, in order
+for me to refactor the code I have deemed necessary to the functionality of
+this project, as well as taking a crack at using my singly-linked priority
+queue to implement the dynamic 'game time' / 'move cost' NPC movement.
 ------------------------------------------------------------------------------ 
 - hikers: 'h'
 	* Hikers path to the PC by following a max gradient on the hiker 
@@ -27,6 +71,9 @@ hiker and one rival would be generated.
 	* Stationaries don't move. - random walkers: 'n'
 	* Random walkers move like pacers, but they cross terrain type
 	boundaries. 
+- random walkers: 'n'
+	* These will be represented by the letter ’n’. Random walkers move like
+	 wanderers, but they cross terrain type boundaries.
 ------------------------------------------------------------------------------ 
 CONSTRAINTS:
  - No character will move into a map cell occupied by 
@@ -42,3 +89,5 @@ GUIDANCE:
 in the queue removed according to the time of their next move. The time 
 of the first move is 0. Each subsequent move time is the current time 
 plus the movement cost for the terrain that the character is moving to.
+------------------------------------------------------------------------------ 
+

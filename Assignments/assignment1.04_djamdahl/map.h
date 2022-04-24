@@ -37,7 +37,7 @@
 
 #define HEIGHT 21
 #define WIDTH 80
-#define NUM_TRAINERS 10
+//#define NUM_TRAINERS 10
 
 #define BORDER '%'
 #define PATH '#'
@@ -55,7 +55,8 @@
 #define PACERS 'p'
 #define WANDERERS 'w'
 #define STATIONARIES 's'
-#define RANDOM_WALKER 'n'
+#define RANDOM_WALKERS 'n'
+#define VACANT 'Z'
 
 typedef struct coordinates
 {
@@ -80,17 +81,22 @@ typedef struct character
     char symbol;
     // Stores the text representation of the terrain in which the character is standing upon.
     char previousTerrain;
-
+    // Stores the direction that the character is facing.
+    int direction;
+    // Stores true if the NPC has reached the PC.
+    bool atPC;
+    // Stores the index of the NPC's next move.
+    coordinates_t nextMove;
     // This 2D array stores the cost map for the PC.
     cost_node_t costMap[HEIGHT][WIDTH];
-    // This 2D array stores the coordinates of the node you took to get to node 'i', for the PC.
-    coordinates_t prev[HEIGHT][WIDTH];
 } character_t;
 
-typedef struct map
+typedef struct map // TODO add a 'char characterMap[HEIGHT][WIDTH]', overlay this over the mapArray before printing.
 {
     // This 2D array is how the map will actually be stored and represented in the terminal.
     char mapArray[HEIGHT][WIDTH];
+    // This 2D array stores the locations of the characters.
+    char characterArray[HEIGHT - 1][WIDTH - 1];
 
     // The following variables store the coordinates of map's exits.
     int northExit[2];
@@ -174,7 +180,10 @@ void printColor(char ch);
 void generateNPC(map_t *m, int k);
 
 // Function to generate each Trainer character using 'generateCharacter()' based on the NUM_TRAINERS.
-void generateNPCs(map_t *m);
+void generateNPCs(map_t *m, int NUM_TRAINERS);
+
+// Function to initialize the characterArray to sentinel values of 'Z'.
+void initializeCharacterArray(map_t *m);
 
 // Function to randomly choose a location on a road (and not on the border) for the player character to be generated.
 void generatePC(map_t *m);
@@ -186,24 +195,33 @@ void printMap(map_t *m);
 void seededGeneration(map_t *m);
 
 // Function to randomly generate the map.
-void randomGeneration(map_t *m);
+void randomGeneration(map_t *m, const int NUM_TRAINERS);
 
-// Function to generate (in memory and in the map) the minimum number of trainers.
-void initializeTrainers(map_t *m);
+// Function to randomly choose a direction for the directionally-oriented Trainers.
+void generateDirections(map_t *m, int k);
+
+// Function to generate (in memory and in the map) the minimum number of Trainers.
+void initializeTrainers(map_t *m, const int NUM_TRAINERS);
 
 // Initialize the cost maps to NULL at every position in the 2D array.
-void initializeCostMaps(map_t *m);
+void initializeCostMaps(map_t *m, const int NUM_TRAINERS);
 
 // Function to initialize the cost map for the PC.
 void initializePlayerCostMap(map_t *m);
 
-// Function to initialize the cost maps for the map's Trainers.
-void initializeTrainerCostMaps(map_t *m);
+// Function to initialize the cost maps for one of a map's Hikers or Rivals..
+void initializeHikersAndRivalsCostMap(map_t *m, int k);
+
+// Function to initialize the cost maps for the map's Hikers and Rivals.
+void initializeHikersAndRivalsCostMaps(map_t *m, const int NUM_TRAINERS);
 
 // Function to print the Player's cost map.
 void printPlayerCostMap(map_t *m);
 
+// Function to print a Hikers or Rivals cost map.
+void printHikersAndRivalsCostMap(map_t *m, int k);
+
 // Function to print the Trainer's cost maps.
-void printTrainerCostMaps(map_t *m);
+void printHikersAndRivalsCostMaps(map_t *m, const int NUM_TRAINERS);
 
 #endif

@@ -1,0 +1,38 @@
+-------------------------------------------------------------------------------
+ASSIGNMENT 1.07
+-------------------------------------------------------------------------------
+
+===========================DISCLAIMERS_BUGS_AHEAD=============================
+
+I was pretty much done with this assignment around 11 A.M. today (04/06/22),
+as I was only working out a few tiny kinks and adding simply rounding out my
+functions and making things more modular. However, unbeknownst to me, I had
+been slowly introducing memory leaks and heap corruptions into my program for
+this assignment. Sadly, it was far too late by the time I realized this. I
+went from being 30-minutes away from submitting, to spending the next seven
+hours of my day trying to track down these bugs. While I had reached out to
+the CS Help Room Tutors for guidance, they told informed me that there was
+not much that could be done other than hoping and prayig to Valgrind.
+
+I even met with Sheaffer in his office about solving the memory leaks / heap
+corruption, but he informed me of the same things that the tutors had: fixing
+a corrupted heap is not an easy task, and it often is not successful. While
+you should be able to encounter a couple of wild Pokemon and see that I 
+implemented all of the required functionality for this project, soon enough
+you will see the wraith of a noob programming a large project in an unamaged
+programming language :). While I do understand that this is a large bug,
+I truly tried my best when it came to solving, but it was simply too
+complicated for me. The only other option that I had was to completely start
+over... which seemed even less ideal than trying to win the battle against
+the black-hole of pain and suffering that a corrupted heap is. I believe
+that these memory issues came about as a result of me trying to continue
+off of my own submission from last week in which I tried pushing Sheaffer's
+code towards a more object-oriented design which backfired, and hence why you
+will a weird mix of the two styles of programming.
+
+For this assignment we were tasked with implementing several features that
+would create a more lively atmosphere for our projects and get us closer to
+what our final version of the game will look like. We were tasked with using
+the data that we parsed from the CSV files from the previous assignment in
+to implement a 'rough-draft' of wild Pokemon encounters. 
+-------------------------------------------------------------------------------

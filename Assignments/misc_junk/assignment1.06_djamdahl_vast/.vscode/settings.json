@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "algorithm": "cpp",
+        "string": "cpp",
+        "limits": "cpp",
+        "type_traits": "cpp",
+        "*.tcc": "cpp",
+        "istream": "cpp",
+        "iostream": "cpp",
+        "vector": "cpp",
+        "iosfwd": "cpp",
+        "ostream": "cpp",
+        "random": "cpp",
+        "deque": "cpp"
+    }
+}

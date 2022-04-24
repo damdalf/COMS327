@@ -1,0 +1,20 @@
+For this assignment, we were tasked with implementing a UI that allows 
+the user to move the PC around the map, using the ncurses library. 
+Additionally, we had to implement the functionality of the PC being able 
+to move from map to map using the path exits, whilse ensuring that a map 
+remains the same as it was when the PC left and moved to a different map.
+
+Additional functionality included:
+- Displaying a list of the NPCs and their distance from the PC.
+- Trainer battle dialogs triggering.
+- Entering a PokeMart / PokeCenter, with associated dialog.
+
+While I think many of my solutions, while a bit robust, are rather intuitive.
+The code definitely needs some refactoring, but I didn't want to mess with
+Sheaffer's code too much, as it is very difficult to comprehend. I think I came
+up with a very simple and intuitive solution to implementing a scrolling
+trainer list, after struggling with it for quite some time.
+
+However, I have not implemented the '--numTrainers' switch, as Sheaffer did
+not include it in his 1.04 solution, and it is not explicitly asked for
+in the requirements for 1.05.

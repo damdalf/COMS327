@@ -1,0 +1,52 @@
+ASSIGNMENT 1.05 
+------------------------------------------------------------------------------ 
+03/21/2022:
+------------------------------------------------------------------------------ 
+I have succumbed to the dark side, and have chosen to abandon my code and
+begin using Professor Sheaffer's code. I will begin by having the map printed
+through ncurses, instead of being printed to the terminal as it has been.
+------------------------------------------------------------------------------ 
+STATUS:
+- Imported ncurses library and became accustomed to it.
+- Implemented the functionality of printing the map to the stdscr.
+------------------------------------------------------------------------------
+03/22/2002:
+------------------------------------------------------------------------------ 
+Figured the best place to start is allowing the player to move. From there,
+will add entering PokeMarts and PokeCenters.
+------------------------------------------------------------------------------ 
+STATUS:
+- Implemented all eight-directions for player movement.
+- Became accustomed with using ncurses to create new windows.
+- Implemented the ability for the PC to enter PokeMarts and PokeCenters.
+- Implemented the ability to view a list of the trainers.
+------------------------------------------------------------------------------ 
+03/23/2022:
+------------------------------------------------------------------------------ 
+With the ability to enter buildings implemented, and a better understanding
+of creating windows with ncurses, it is tinme to implement trainer battles.
+------------------------------------------------------------------------------ 
+STATUS:
+- Implemented trainer battles instigated by the PC.
+- Implemented trainer battles instigated by the NPCs.
+------------------------------------------------------------------------------ 
+03/24/2022:
+------------------------------------------------------------------------------ 
+With all of the movement and dialog based events implemented, it is time to
+tackle the most difficult requires: moving from map to map and modifying the
+trainer list to be scrollable.
+------------------------------------------------------------------------------ 
+STATUS:
+- Implemented the ability to move from map to map.
+------------------------------------------------------------------------------ 
+03/25/2022:
+------------------------------------------------------------------------------ 
+STATUS:
+- Implemented the ability to scroll through the list of trainers.
+	- However, this experiences random undefined behavior here and there.
+	- Without scrolling, the list works completely fine. Furthermore,
+	because of how Sheaffer created his solution for 1.04, I believe it
+	is unnecessary to have a scrolling trainer list. Please see my
+	README for a greater explanation.
+- Fixed all bugs associated with scrolling through the list of trainers.
+------------------------------------------------------------------------------ 

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="326d29ae-9d55-4d43-9b83-a178b5c08257" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../assignment1.01/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.01/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.02/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/.cmake/api/v1/reply/cache-v2-1daa3ce25ca4cb7bacaa.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-d0a7920b6953cf8e23dd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-a52aa3dd57c316373536.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/.cmake/api/v1/reply/index-2022-02-10T15-06-47-0040.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/.cmake/api/v1/reply/target-assignment1_02-Debug-a5bfb268eb6f2855f4cf.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/CMakeFiles/assignment1_02.dir/world.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/CMakeFiles/assignment1_02.dir/world.c.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/assignment1_02" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/assignment1_02" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.02/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/map.h" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.02/map.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02/world.c" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.02/world.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.02_djamdahl.tar.gz" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="255TldVzZXEQ1CNU2HbbUpkFytG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="cidr.known.project.marker" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="326d29ae-9d55-4d43-9b83-a178b5c08257" name="Changes" comment="" />
+      <created>1644816099895</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1644816099895</updated>
+      <workItem from="1644816101108" duration="21000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

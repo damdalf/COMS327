@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+ASSIGNMENT 1.06
+-------------------------------------------------------------------------------
+For this assignment we were tasked with porting our entire game into C++, and
+parsing a collection fo .csv files to populate our Pokemon, Moves,
+Pokemon Moves, Pokemon Species, Experience, and Type Names vectors.
+This involved:
+
+ - Renaming all of our files (other than heap.c) to .cpp files.
+ - Altering our Makefile to still compile our program.
+ - Changing Map, Character, NPC, and PC from structs to classes.
+     * No requirements for how we handled access to class variables were given.
+ - PC and NPC should inherit from Character.
+ - Creating a class to represent the six .csv files we had to parse.
+ - Looking for the .csv files in multiple locations.
+ - Parsing the six .csv files and storing the associated data.
+ - Displaying the data that we obtained.
+
+The only noteworthy thing about my solution is how I went about handling the
+file reading / parsing functionality, which is contained in 'file_reader.h'
+and 'file_reader.cpp'. I went ahead and created conventionally-correct C++
+classes in order to learn more about C++ and it created a very fast and
+intuitive solution for meeting the requirements.
+-------------------------------------------------------------------------------

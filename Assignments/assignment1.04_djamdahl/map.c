@@ -626,7 +626,7 @@ void printColor(char ch)
         case PACERS:                // RED (BOLD)
         case WANDERERS:             // RED (BOLD)
         case STATIONARIES:          // RED (BOLD)
-        case RANDOM_WALKER:         // RED (BOLD)
+        case RANDOM_WALKERS:         // RED (BOLD)
             printf(B_RED "%c", ch); // RED (BOLD)
             break;
         default:
@@ -670,6 +670,7 @@ void generatePC(map_t *m)
     m->pc.previousTerrain = m->mapArray[m->pc.xPos][m->pc.yPos];
     // Place the PC in the map.
     m->mapArray[m->pc.xPos][m->pc.yPos] = PLAYER;
+    m->characterArray[m->pc.xPos][m->pc.yPos] = PLAYER;
 }
 
 /*
@@ -686,35 +687,108 @@ void generateNPC(map_t *m, int k)
 
     while (!generated)
     {
-        for (i = 0; i < HEIGHT; i++)
+        for (i = 1; i < HEIGHT - 1; i++)
         {
-            for (j = 0; j < WIDTH; j++)
+            for (j = 1; j < WIDTH - 1; j++)
             {
                 // Check if the terrain cell has a movement cost of infinity (INT_MAX).
-                if (m->trainers[k]->costMap[i][j].priority != INT_MAX)
+                switch(m->trainers[k]->symbol)
                 {
-                    // If not, check if the terrain cell is already occupied by another character, or if the current terrain cell is a border or exit.
-                    if ((m->mapArray[i][j] != PLAYER && m->mapArray[i][j] != HIKERS && m->mapArray[i][j] != RIVALS &&
-                         m->mapArray[i][j] != PACERS && m->mapArray[i][j] != WANDERERS && m->mapArray[i][j] != STATIONARIES &&
-                         m->mapArray[i][j] != RANDOM_WALKER && m->mapArray[i][j] != BORDER) && (i != m->northExit[0] && i != m->eastExit[0]
-                         && i != m->westExit[0] && i != m->southExit[0]) && (j != m->northExit[1] && j != m->eastExit[1] && j != m->westExit[1] && j != m->southExit[1]))
-                    {
-                        // Now it's time to choose a random terrain cell from the available options for the current Trainer's position.
-                        odds = rand() % 1000;
-                        if (odds == 0)
+                    case HIKERS:
+                        if (m->trainers[k]->costMap[i][j].priority != INT_MAX)
                         {
-                            m->trainers[k]->xPos = i;
-                            m->trainers[k]->yPos = j;
-                            m->trainers[k]->previousTerrain = m->mapArray[i][j];
-                            // Place the Trainer into the map.
-                            m->mapArray[m->trainers[k]->xPos][m->trainers[k]->yPos] = m->trainers[k]->symbol;
-                            return;
+                            // If not, check if the terrain cell is already occupied by another character, or if the current terrain cell is a border or exit.
+                            if ((i < 20 && j < 79 && i > 1 && j > 1 && m->characterArray[i][j] != PLAYER && m->characterArray[i][j] != HIKERS && m->characterArray[i][j] != RIVALS &&
+                                 m->characterArray[i][j] != PACERS && m->characterArray[i][j] != WANDERERS && m->characterArray[i][j] != STATIONARIES &&
+                                 m->characterArray[i][j] != RANDOM_WALKERS && m->mapArray[i][j] != BORDER && m->mapArray[i][j] != MART && m->mapArray[i][j] != CENTER)
+                                 &&(i != m->northExit[0] && i != m->eastExit[0] && i != m->westExit[0]&& i != m->southExit[0]) && (j != m->northExit[1] &&
+                                 j != m->eastExit[1] &&j != m->westExit[1] && j != m->southExit[1]))
+                            {
+                                // Now it's time to choose a random terrain cell from the available options for the current Trainer's position.
+                                odds = rand() % 1000;
+                                if (odds == 0)
+                                {
+                                    m->trainers[k]->xPos = i;
+                                    m->trainers[k]->yPos = j;
+                                    m->trainers[k]->previousTerrain = m->mapArray[i][j];
+                                    // Place the Trainer into the map.
+                                    m->characterArray[i][j] = m->trainers[k]->symbol;
+                                    m->trainers[k]->atPC = false;
+                                    return;
+                                }
+                            }
                         }
-                        else
+                        break;
+                    case RIVALS:
+                        if (m->trainers[k]->costMap[i][j].priority != INT_MAX)
                         {
-                            continue;
+                            // If not, check if the terrain cell is already occupied by another character, or if the current terrain cell is a border or exit.
+                            if ((i < 20 && j < 79 && i > 1 && j > 1 && m->characterArray[i][j] != PLAYER && m->characterArray[i][j] != HIKERS && m->characterArray[i][j] != RIVALS &&
+                                 m->characterArray[i][j] != PACERS && m->characterArray[i][j] != WANDERERS && m->characterArray[i][j] != STATIONARIES &&
+                                 m->characterArray[i][j] != RANDOM_WALKERS && m->mapArray[i][j] != BORDER && m->mapArray[i][j] != TREE && m->mapArray[i][j] != ROCK
+                                 && m->mapArray[i][j] != MART && m->mapArray[i][j] != CENTER) &&(i != m->northExit[0] && i != m->eastExit[0] && i != m->westExit[0]
+                                 && i != m->southExit[0]) && (j != m->northExit[1] && j != m->eastExit[1] && j != m->westExit[1] && j != m->southExit[1]))
+                            {
+                                // Now it's time to choose a random terrain cell from the available options for the current Trainer's position.
+                                odds = rand() % 1000;
+                                if (odds == 0)
+                                {
+                                    m->trainers[k]->xPos = i;
+                                    m->trainers[k]->yPos = j;
+                                    m->trainers[k]->previousTerrain = m->mapArray[i][j];
+                                    // Place the Trainer into the map.
+                                    m->characterArray[i][j] = m->trainers[k]->symbol;
+                                    m->trainers[k]->atPC = false;
+                                    return;
+                                }
+                            }
                         }
-                    }
+                        break;
+                    case WANDERERS:
+                        // Check if the terrain cell is already occupied by another character, or if the current terrain cell is a border, exit, or inaccessible terrain type.
+                        if ((i < 20 && j < 79 && i > 1 && j > 1 && m->characterArray[i][j] != PLAYER && m->characterArray[i][j] != HIKERS && m->characterArray[i][j] != RIVALS &&
+                             m->characterArray[i][j] != PACERS && m->characterArray[i][j] != WANDERERS && m->characterArray[i][j] != STATIONARIES &&
+                             m->characterArray[i][j] != RANDOM_WALKERS && m->mapArray[i][j] != BORDER && m->mapArray[i][j] != TREE && m->mapArray[i][j] != ROCK
+                             && m->mapArray[i][j] != MART && m->mapArray[i][j] != CENTER && m->mapArray[i][j] != FLOWER) &&(i != m->northExit[0] && i != m->eastExit[0] && i != m->westExit[0]
+                             && i != m->southExit[0]) && (j != m->northExit[1] && j != m->eastExit[1] &&j != m->westExit[1] && j != m->southExit[1]))
+                        {
+                            // Now it's time to choose a random terrain cell from the available options for the current Trainer's position.
+                            odds = rand() % 1000;
+                            if (odds == 0)
+                            {
+                                m->trainers[k]->xPos = i;
+                                m->trainers[k]->yPos = j;
+                                m->trainers[k]->previousTerrain = m->mapArray[i][j];
+                                // Place the Trainer into the map.
+                                m->characterArray[i][j] = m->trainers[k]->symbol;
+                                m->trainers[k]->atPC = false;
+                                return;
+                            }
+                        }
+                        break;
+                    default:
+                        // Check if the terrain cell is already occupied by another character, or if the current terrain cell is a border, exit, or inaccessible terrain type.
+                        if ((i < 20 && j < 79 && i > 1 && j > 1 && m->characterArray[i][j] != PLAYER && m->characterArray[i][j] != HIKERS && m->characterArray[i][j] != RIVALS &&
+                             m->characterArray[i][j] != PACERS && m->characterArray[i][j] != WANDERERS && m->characterArray[i][j] != STATIONARIES &&
+                             m->characterArray[i][j] != RANDOM_WALKERS && m->mapArray[i][j] != BORDER && m->mapArray[i][j] != TREE && m->mapArray[i][j] != ROCK
+                             && m->mapArray[i][j] != MART && m->mapArray[i][j] != CENTER) &&(i != m->northExit[0] && i != m->eastExit[0] && i != m->westExit[0]
+                                                                                             && i != m->southExit[0]) && (j != m->northExit[1] && j != m->eastExit[1] &&j != m->westExit[1] && j != m->southExit[1]))
+                        {
+                            // Now it's time to choose a random terrain cell from the available options for the current Trainer's position.
+                            odds = rand() % 1000;
+                            if (odds == 0)
+                            {
+                                generated = true;
+                                m->trainers[k]->xPos = i;
+                                m->trainers[k]->yPos = j;
+                                m->trainers[k]->previousTerrain = m->mapArray[i][j];
+                                // Place the Trainer into the map.
+                                m->characterArray[i][j] = m->trainers[k]->symbol;
+                                m->trainers[k]->atPC = false;
+                                return;
+                            }
+                        }
+                        break;
                 }
             }
         }
@@ -722,7 +796,7 @@ void generateNPC(map_t *m, int k)
 }
 
 // Function to generate each Trainer character using 'generateCharacter()' based on the NUM_TRAINERS.
-void generateNPCs(map_t *m)
+void generateNPCs(map_t *m, const int NUM_TRAINERS)
 {
     int k;
     for (k = 0; k < NUM_TRAINERS; k++)
@@ -731,6 +805,19 @@ void generateNPCs(map_t *m)
     }
 }
 
+// Function to initialize the characterArray to sentinel values of 'Z'.
+void initializeCharacterArray(map_t *m)
+{
+    int i, j;
+
+    for (i = 0; i < HEIGHT; i++)
+    {
+        for (j = 0; j < WIDTH; j++)
+        {
+            m->characterArray[i][j] = VACANT;
+        }
+    }
+}
 
 // Function to print the contents of the map.
 void printMap(map_t *m)
@@ -741,8 +828,16 @@ void printMap(map_t *m)
     {
         for (j = 0; j < WIDTH; j++)
         {
-            printColor(m->mapArray[i][j]);
-            printf(RESET);
+            if (m->characterArray[i][j] != VACANT && i >= 1 && j >= 1 && i <= 19 && j <= 78)
+            {
+                printColor(m->characterArray[i][j]);
+                printf(RESET);
+            }
+            else
+            {
+                printColor(m->mapArray[i][j]);
+                printf(RESET);
+            }
         }
 
         printf("\n");
@@ -771,83 +866,148 @@ void seededGeneration(map_t *m)
 }
 
 // Function to randomly generate the map.
-void randomGeneration(map_t *m)
+void randomGeneration(map_t *m, const int NUM_TRAINERS)
 {
+    // Initialize randomness.
     srand(time(NULL));
     rand();
 
+    // Map initialization.
     initializeMap(m);
+    // Initialize characterArray.
+    initializeCharacterArray(m);
     generateRegions(m);
     placeExits(m);
     buildPaths(m);
     placePokeMart(m);
     placePokeCenter(m);
     addRandom(m);
+
+    // Initialize PC, generate PC. TODO could put initializeTrainers within generateNPCs.
     generatePC(m);
+    // Initialize NPCs.
+    initializeTrainers(m, NUM_TRAINERS);
+    // Generate NPCs.
+    generateNPCs(m, NUM_TRAINERS);
 
-    initializeTrainers(m);
-    initializeCostMaps(m);
+    // Initialize cost maps.
+    initializeCostMaps(m, NUM_TRAINERS);
     initializePlayerCostMap(m);
-    initializeTrainerCostMaps(m);
+    initializeHikersAndRivalsCostMaps(m, NUM_TRAINERS);
 
-    dijkstraTrainer(m);
+    // Create cost maps for the PC and each Trainer. Then, print them to the terminal.
     dijkstraPC(m);
-    
+    dijkstraTrainers(m, NUM_TRAINERS);
+    // Print cost maps.
     printPlayerCostMap(m);
-    printTrainerCostMaps(m);
-    generateNPCs(m);
+    printHikersAndRivalsCostMaps(m, NUM_TRAINERS);
+
+    // TODO is it needed to create new cost maps? I wouldn't think so considering the PC has not moved.
     printMap(m);
 }
 
-// Function to generate (in memory and in the map) the minimum number of trainers.
-void initializeTrainers(map_t *m)
+// Function to randomly choose a direction for the directionally-oriented Trainers.
+void generateDirections(map_t *m, int k)
 {
-    int i, odds;
+    switch(rand() % 8)
+    {
+        case 0: // N
+            if (m->trainers[k]->direction != 0) m->trainers[k]->direction = 0;
+            else generateDirections(m, k);
+            break;
+        case 1: // NE
+            if (m->trainers[k]->direction != 1) m->trainers[k]->direction = 1;
+            else generateDirections(m, k);
+            break;
+        case 2: // E
+            if (m->trainers[k]->direction != 2) m->trainers[k]->direction = 2;
+            else generateDirections(m, k);
+            break;
+        case 3: // SE
+            if (m->trainers[k]->direction != 3) m->trainers[k]->direction = 3;
+            else generateDirections(m, k);
+            break;
+        case 4: // S
+            if (m->trainers[k]->direction != 4) m->trainers[k]->direction = 4;
+            else generateDirections(m, k);
+            break;
+        case 5: // SW
+            if (m->trainers[k]->direction != 5) m->trainers[k]->direction = 5;
+            else generateDirections(m, k);
+            break;
+        case 6: // W
+            if (m->trainers[k]->direction != 6) m->trainers[k]->direction = 6;
+            else generateDirections(m, k);
+            break;
+        case 7: // NW
+            if (m->trainers[k]->direction != 7) m->trainers[k]->direction = 7;
+            else generateDirections(m, k);
+            break;
+    }
+}
+
+// Function to generate (in memory and in the map) the minimum number of trainers.
+void initializeTrainers(map_t *m, const int NUM_TRAINERS)
+{
+    int k, odds;
     // Allocate the memory needed for 10 trainers.
 
     m->trainers = malloc(NUM_TRAINERS * sizeof(character_t*));
-    for (i = 0; i < NUM_TRAINERS; i++)
+    for (k = 0; k < NUM_TRAINERS; k++)
     {
-        m->trainers[i] = malloc(sizeof(character_t));
+        m->trainers[k] = malloc(sizeof(character_t));
     }
     // Ensure that our array of trainers contains at LEAST one Hiker and one Rival.
-    m->trainers[0]->symbol = 'h';
-    m->trainers[1]->symbol = 'r';
+    m->trainers[0]->symbol = HIKERS;
+    m->trainers[0]->atPC = false;
+    m->trainers[1]->symbol = RIVALS;
+    m->trainers[1]->atPC = false;
     // Randomly fill this array with trainers of corresponding trainer types.
-    for (i = 2; i < NUM_TRAINERS; i++)
+    for (k = 2; k < NUM_TRAINERS; k++)
     {
         odds = rand() % 6;
         switch(odds)
         {
             // Hikers.
             case 0:
-                m->trainers[i]->symbol = HIKERS;
+                m->trainers[k]->symbol = HIKERS;
+                m->trainers[k]->atPC = false;
                 break;
                 // Rivals.
             case 1:
-                m->trainers[i]->symbol = RIVALS;
+                m->trainers[k]->symbol = RIVALS;
+                m->trainers[k]->atPC = false;
                 break;
                 // Pacers.
             case 2:
-                m->trainers[i]->symbol = PACERS;
+                m->trainers[k]->symbol = PACERS;
+                m->trainers[k]->atPC = false;
+                generateDirections(m, k);
                 break;
                 // Wanderers.
             case 3:
-                m->trainers[i]->symbol = WANDERERS;
+                m->trainers[k]->symbol = WANDERERS;
+                m->trainers[k]->atPC = false;
+                generateDirections(m, k);
                 break;
                 // Stationaries.
             case 4:
-                m->trainers[i]->symbol = STATIONARIES;
+                m->trainers[k]->symbol = STATIONARIES;
+                m->trainers[k]->atPC = false;
+                generateDirections(m, k);
                 break;
+                // Random Walkers
             case 5:
-                m->trainers[i]->symbol = RANDOM_WALKER;
+                m->trainers[k]->symbol = RANDOM_WALKERS;
+                m->trainers[k]->atPC = false;
+                generateDirections(m, k);
                 break;
         }
     }
 }
 
 // Initialize the cost maps to INT_MAX at every position in the 2D array.
-void initializeCostMaps(map_t *m)
+void initializeCostMaps(map_t *m, const int NUM_TRAINERS)
 {
     int i, j, k;
     for (i = 0; i < HEIGHT; i++)
@@ -859,8 +1019,11 @@ void initializeCostMaps(map_t *m)
 
             for (k = 0; k < NUM_TRAINERS; k++)
             {
-                m->trainers[k]->costMap[i][j].priority = INT_MAX;
-                m->trainers[k]->costMap[i][j].visited = false;
+                if (m->trainers[k]->symbol == HIKERS || m->trainers[k]->symbol == RIVALS)
+                {
+                    m->trainers[k]->costMap[i][j].priority = INT_MAX;
+                    m->trainers[k]->costMap[i][j].visited = false;
+                }
             }
         }
     }
@@ -870,9 +1033,9 @@ void initializeCostMaps(map_t *m)
 void initializePlayerCostMap(map_t *m)
 {
     int i, j;
-    for (i = 0; i < 399; i++)
+    for (i = 0; i < HEIGHT; i++)
     {
-        for (j = 0; j < 399; j++)
+        for (j = 0; j < WIDTH; j++)
         {
             switch(m->mapArray[i][j])
             {
@@ -908,8 +1071,93 @@ void initializePlayerCostMap(map_t *m)
     }
 }
 
-// Function to initialize the cost maps for the map's trainers.
-void initializeTrainerCostMaps(map_t *m)
+// Function to initialize the cost maps for one of a map's Hikers and Rivals.
+void initializeHikersAndRivalsCostMap(map_t *m, int k)
+{
+    int i, j;
+
+    // For Hikers.
+    if (m->trainers[k]->symbol == HIKERS)
+    {
+        for (i = 0; i < HEIGHT; i++)
+        {
+            for (j = 0; j < WIDTH; j++)
+            {
+                switch(m->mapArray[i][j])
+                {
+                    case BORDER: // inaccessible terrain type for the Hiker.
+                        break;
+                    case TREE:
+                        m->trainers[k]->costMap[i][j].priority = 15;
+                        break;
+                    case PATH:
+                        m->trainers[k]->costMap[i][j].priority = 10;
+                        break;
+                    case MART: // inaccessible terrain type for the Hiker.
+                        break;
+                    case CENTER: // inaccessible terrain type for the Hiker.
+                        break;
+                    case GRASS:
+                        m->trainers[k]->costMap[i][j].priority = 15;
+                        break;
+                    case CLEARING:
+                        m->trainers[k]->costMap[i][j].priority = 10;
+                        break;
+                    case ROCK:
+                        m->trainers[k]->costMap[i][j].priority = 15;
+                        break;
+                    case FLOWER:
+                        m->trainers[k]->costMap[i][j].priority = 10;
+                        break;
+                    case PLAYER:
+                        m->trainers[k]->costMap[i][j].priority = 0;
+                        break;
+                }
+            }
+        }
+    }
+    // For Rivals.
+    else if (m->trainers[k]->symbol == RIVALS)
+    {
+        for (i = 0; i < HEIGHT; i++)
+        {
+            for (j = 0; j < WIDTH; j++)
+            {
+                switch(m->mapArray[i][j])
+                {
+                    case BORDER: // inaccessible terrain type for the Rival.
+                        break;
+                    case TREE: // inaccessible terrain type for the Rival.
+                        break;
+                    case PATH:
+                        m->trainers[k]->costMap[i][j].priority = 10;
+                        break;
+                    case MART: // inaccessible terrain type for the Rival.
+                        break;
+                    case CENTER: // inaccessible terrain type for the Rival.
+                        break;
+                    case GRASS:
+                        m->trainers[k]->costMap[i][j].priority = 20;
+                        break;
+                    case CLEARING:
+                        m->trainers[k]->costMap[i][j].priority = 10;
+                        break;
+                    case ROCK: // inaccessible terrain type for the Rival.
+                        break;
+                    case FLOWER:
+                        m->trainers[k]->costMap[i][j].priority = 10;
+                        break;
+                    case PLAYER:
+                        m->trainers[k]->costMap[i][j].priority = 0;
+                        break;
+                }
+            }
+        }
+    }
+}
+
+// Function to initialize the cost maps for the map's Hikers and Rivals.
+void initializeHikersAndRivalsCostMaps(map_t *m, const int NUM_TRAINERS)
 {
     int i, j, k;
 
@@ -917,11 +1165,11 @@ void initializeTrainerCostMaps(map_t *m)
     for (k = 0; k < NUM_TRAINERS; k++)
     {
         // For Hikers.
-        if (m->trainers[k]->symbol == 'h')
+        if (m->trainers[k]->symbol == HIKERS)
         {
-            for (i = 0; i < 399; i++)
+            for (i = 0; i < HEIGHT; i++)
             {
-                for (j = 0; j < 399; j++)
+                for (j = 0; j < WIDTH; j++)
                 {
                     switch(m->mapArray[i][j])
                     {
@@ -956,12 +1204,12 @@ void initializeTrainerCostMaps(map_t *m)
                 }
             }
         }
-        // For Rivals.
-        else if (m->trainers[k]->symbol == 'r')
+            // For Rivals.
+        else if (m->trainers[k]->symbol == RIVALS)
         {
-            for (i = 0; i < 399; i++)
+            for (i = 0; i < HEIGHT; i++)
             {
-                for (j = 0; j < 399; j++)
+                for (j = 0; j < WIDTH; j++)
                 {
                     switch(m->mapArray[i][j])
                     {
@@ -994,50 +1242,13 @@ void initializeTrainerCostMaps(map_t *m)
                 }
             }
         }
-        else
-        {
-            for (i = 0; i < 399; i++)
-            {
-                for (j = 0; j < 399; j++)
-                {
-                    switch(m->mapArray[i][j])
-                    {
-                        case BORDER: // inaccessible terrain type for the Trainer.
-                            break;
-                        case TREE: // inaccessible terrain type for the Trainer.
-                            break;
-                        case PATH:
-                            m->trainers[k]->costMap[i][j].priority = 10;
-                            break;
-                        case MART: // inaccessible terrain type for the Trainer.
-                            break;
-                        case CENTER: // inaccessible terrain type for the Trainer.
-                            break;
-                        case GRASS:
-                            m->trainers[k]->costMap[i][j].priority = 20;
-                            break;
-                        case CLEARING:
-                            m->trainers[k]->costMap[i][j].priority = 10;
-                            break;
-                        case ROCK: // inaccessible terrain type for the Trainer.
-                            break;
-                        case FLOWER:
-                            m->trainers[k]->costMap[i][j].priority = 10;
-                            break;
-                        case PLAYER:
-                            m->trainers[k]->costMap[i][j].priority = 0;
-                            break;
-                    }
-                }
-            }
-        }
     }
 }
 
 // Function to print the Player's cost map.
 void printPlayerCostMap(map_t *m)
 {
-    printf("PLAYER COST MAP:\n");
+    printf("PLAYER'S COST MAP:\n");
 
     int i, j;
 
@@ -1059,58 +1270,69 @@ void printPlayerCostMap(map_t *m)
 
         printf("\n");
     }
+    printf("\n");
+    printf(B_BLU "------------------------------------------------------------------------------------------\n");
+    printf(RESET);
+    printf("\n");
+}
 
+// Function to print a Hikers or Rivals cost map.
+void printHikersAndRivalsCostMap(map_t *m, int k)
+{
+    int i, j;
+
+    for (i = 0; i < HEIGHT; i++)
+    {
+        for (j = 0; j < WIDTH; j++)
+        {
+            if (m->trainers[k]->costMap[i][j].priority == 0)
+            {
+                printf(B_RED "%2d ", m->trainers[k]->costMap[i][j].priority);
+                printf(RESET);
+            }
+            else if (m->trainers[k]->costMap[i][j].priority == INT_MAX)
+            {
+                printf("   ");
+            }
+            else printf("%2d ", m->trainers[k]->costMap[i][j].priority % 100);
+        }
+
+        printf("\n");
+    }
+    printf(B_BLU "------------------------------------------------------------------------------------------\n");
+    printf(RESET);
     printf("\n");
 }
 
 // Function to print the Trainer's cost maps.
-void printTrainerCostMaps(map_t *m)
+void printHikersAndRivalsCostMaps(map_t *m, const int NUM_TRAINERS)
 {
-    int i, j, k;
+    int k;
 
     for (k = 0; k < NUM_TRAINERS; k++)
     {
         switch (m->trainers[k]->symbol)
         {
             case HIKERS:
-                printf("HIKER COST MAP:\n");
+                printf("HIKER (TRAINER NO. %d's) COST MAP:\n", k + 1);
+                printHikersAndRivalsCostMap(m, k);
                 break;
             case RIVALS:
-                printf("RIVAL COST MAP:\n");
+                printf("RIVAL (TRAINER NO. %d's) COST MAP:\n", k + 1);
+                printHikersAndRivalsCostMap(m, k);
                 break;
             case PACERS:
-                printf("PACER COST MAP:\n");
+                //printf("PACER NO. %d COST MAP:\n", k + 1);
                 break;
             case WANDERERS:
-                printf("WANDERER COST MAP:\n");
+                //printf("WANDERER NO. %d's COST MAP:\n", k + 1);
                 break;
             case STATIONARIES:
-                printf("STATIONARY COST MAP:\n");
+                //printf("STATIONARY NO. %d's COST MAP:\n", k + 1);
                 break;
-            case RANDOM_WALKER:
-                printf("RANDOM WALKER COST MAP:\n");
+            case RANDOM_WALKERS:
+                //printf("RANDOM WALKER NO. %d's COST MAP:\n", k + 1);
                 break;
         }
-
-        for (i = 0; i < HEIGHT; i++)
-        {
-            for (j = 0; j < WIDTH; j++)
-            {
-                if (m->trainers[k]->costMap[i][j].priority == 0)
-                {
-                    printf(B_RED "%2d ", m->trainers[k]->costMap[i][j].priority);
-                    printf(RESET);
-                }
-                else if (m->trainers[k]->costMap[i][j].priority == INT_MAX)
-                {
-                    printf("   ");
-                }
-                else printf("%2d ", m->trainers[k]->costMap[i][j].priority % 100);
-            }
-
-            printf("\n");
-        }
-
-        printf("\n");
     }
 }

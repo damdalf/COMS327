@@ -1,0 +1,82 @@
+ASSIGNMENT 1.07
+------------------------------------------------------------------------------
+04/05/2022:
+------------------------------------------------------------------------------
+I was busy the entire weekend working on our final project in SE 319, so I am
+just now getting the chance to begin working on Assignment 1.07. I plan to 
+begin by reading the PDF for the assignment, and implementing the required
+class to parse the pokemon_stats.csv file, as that is what a fellow classmate
+reccomended to begin with.
+
+Now that I have implemented the ability to parse the information from
+pokemon_stats.csv and store it correctly, it is time to begin correctly
+pulling the information from these vectors in order to generate Pokemon.
+
+Once that is fully implemented, it is then time to begin setting out the
+condition of when to generate a Pokemon, and creating a screen to display
+this encounter with. 
+------------------------------------------------------------------------------ 
+STATUS:
+------------------------------------------------------------------------------ 
+ - Implemented a Pokemon_Stat class.
+ - Implemented parsePokemonStatsList().
+ - Implemented printPokemonStatsList().
+ - Corrected code from 1.06 in which I was not passing my vectots containing
+the information from the csv files by reference correctly.
+ - Implemented a manhattan_dist() function to calculate the manhattan
+distance used in setting the minimum and maximum values.
+ - Implemented calculate_level() which calculates the starting level of a 
+Pokemon's stat.
+ - Implemented calculate_hp() which calculates the starting HP for a Pokemon.
+ - Implemented generate_pokemon() which generates a pokemon's level based
+on the manhattan distance from the starting map, randomly generates the type
+ / name of the Pokemon with uniform distribution, the Pokemon's base stats,
+the Pokemon's IV levels, and the Pokemon's final levels.
+------------------------------------------------------------------------------ 
+04/06/2022:
+------------------------------------------------------------------------------ 
+Now that the chance and display of a Pokemon encounter is completed, all that
+remains is assigning the Pokemon's its moveset.
+
+Got sidetracked by trying to create colors (did this in my 1.05 submission),
+but for some reason this only resulted in errors being generated. 
+
+Have struggled for hours trying to get choosing a Pokemon's moves generated.
+Going to try and pivot and think about the solution in a different manner.
+Currnet idea is passing the vectors by value to generate_pokemon(), creating
+a vector to store the indices of applicable moves, and then randomly choosing
+two moves using that information and then using the values from the DB vectors
+to call the Pokemon_Move constructor.
+
+I have now spent over six to sight hours trying to debug this hellish Sarlacc
+Pit-like heap corruption. I have made no progress, but I have fully
+implemented all of the required functionality for this assignment, it is only
+this heap corruption that has tainted my solution.
+------------------------------------------------------------------------------ 
+STATUS:
+------------------------------------------------------------------------------ 
+ - Altered game_loop() to check if the current terrain is tall grass after
+checking if the current character from the queue is the PC. If so, generate
+a wild Pokemon encounter 10% of the time.
+ - Implemented the ability to print the Pokemon encounter within
+generate_pokemon().
+ - Changed game_loop() to accept all of our database vectors as arguments.
+ - All features properly implemented around 11 A.M. However, I have spent the 
+entire afternoon battling with heap corruption that has literally been hell.
+I tried receiving help from the Help Room tutors but even they were lost.
+I have tried everything, and I just can't figure this out. It is far too
+late to begin starting over, so I hope that you will see how my program
+accomplishes all of the requirements, but that I had just been given an
+extremely unfortunate scenario.
+------------------------------------------------------------------------------ 
+TODO:
+ - Change if / else statements when populating data types into single lines.
+ - Remove printing the errors related to finding the csv files.
+ - Change from using vectors to static arrays when parsing the databases to 
+increase efficiency / speed of program.
+ - Rename 'file_reader' files to 'db_parsing'.
+ - Move all comments from source files to header files.
+ - Move all DB data into World or find a better way to store them to avoid
+having to pass them to game_loop.
+ 	- Lazy way would be just making them global, but kind of makes sense
+	considering that world is global too.

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="Poke327CPP" targetName="Poke327CPP" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c471409a-1cc6-42e0-a99b-c96b2633c7b5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/.idea/327PokeGame.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/CMakeLists.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/.cmake/api/v1/query/cache-v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/.cmake/api/v1/reply/cache-v2-20f70ae37bebc4472cfc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-1f44bb297f0b259419b6.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-ebc766ba25b07b90a771.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/.cmake/api/v1/reply/index-2022-03-08T03-35-14-0938.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/.cmake/api/v1/reply/target-327PokeGame-Debug-8ffe957301f5ff86a5bd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-c4358d897dd7ea407f77.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/.ninja_deps" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/.ninja_log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/327PokeGame" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/3.21.1/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/3.21.1/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/3.21.1/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/3.21.1/CompilerIdC/a.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/327PokeGame.dir/dijkstrasAlgorithm.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/327PokeGame.dir/map.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/327PokeGame.dir/poke327.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/327PokeGame.dir/priorityQueue.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/327PokeGame.dir/world.c.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/build.ninja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/dijkstrasAlgorithm.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/dijkstrasAlgorithm.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/map.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/map.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/poke327.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/priorityQueue.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/priorityQueue.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/world.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../327PokeGame/world.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/.idea/assignment1.03_djamdahl.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/CHANGELOG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/assignment1.03_djamdahl.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/dijkstrasAlgorithm.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/dijkstrasAlgorithm.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/map.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/map.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/poke327.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/priorityQueue.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/priorityQueue.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/world.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.03_djamdahl_OUTDATED/world.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/CHANGELOG" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.04_djamdahl/CHANGELOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/README" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.04_djamdahl/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/dijkstrasAlgorithm.c" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.04_djamdahl/dijkstrasAlgorithm.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/dijkstrasAlgorithm.h" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.04_djamdahl/dijkstrasAlgorithm.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/map.c" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.04_djamdahl/map.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/map.h" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.04_djamdahl/map.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/poke327.c" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.04_djamdahl/poke327.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/priorityQueue.c" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.04_djamdahl/priorityQueue.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/priorityQueue.h" beforeDir="false" afterPath="$PROJECT_DIR$/../assignment1.04_djamdahl/priorityQueue.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/save lol/dijkstrasAlgorithm.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/save lol/dijkstrasAlgorithm.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/save lol/map.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/save lol/map.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/save lol/poke327.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/save lol/priorityQueue.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/save lol/priorityQueue.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/save lol/world.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../assignment1.04_djamdahl/save lol/world.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lectureNotes/dayFourteen.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../lectureNotes/dayFourteen.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2021" />
+    <option name="minorVersion" value="3.2" />
+  </component>
+  <component name="ProjectId" id="273MNb0pdyThnpwMnXv136cpFp8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="cmake.loaded.for.project" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Poke327CPP" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Poke327CPP" TARGET_NAME="Poke327CPP" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Poke327CPP" RUN_TARGET_NAME="Poke327CPP">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c471409a-1cc6-42e0-a99b-c96b2633c7b5" name="Changes" comment="" />
+      <created>1648544276802</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1648544276802</updated>
+      <workItem from="1648544277992" duration="15220000" />
+      <workItem from="1648578718478" duration="6600000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

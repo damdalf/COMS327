@@ -1,6 +1,6 @@
 ------------------------------------------------------------------------------
 
-03/07/22
+03/07/2022:
 ------------------------------------------------------------------------------
 I have created my README which outlines the requirements for this 
 assignment, and am now trying to plan out the order in which I will
@@ -44,7 +44,7 @@ STATUS:
 	and added the function 'initializeTrainers()' which handles
 	randomly deciding the types of the trainers.
 ------------------------------------------------------------------------------
-03/08/22:
+03/08/2022:
 ------------------------------------------------------------------------------
 NOTE: Just realizing that I did not see the 'random walker' type of Trainers,
 will have to adjust changes made in the previous log to include this type
@@ -61,6 +61,18 @@ Once that is implemented, it would be a good idea to implement the
 implementation of the dynamic aspects of this assignment, those being the
 NPC's tracking the PC based on his movements, as well as the ability to move
 the PC in the first place, all in regards to the given constraints.
+
+I have been struggling to properly implement 'findShortestPath()' for the past
+couple of hours. However, I had been trying to use an array to store these
+values. Thus, I am now going to try and use a priority queue.
+
+I am now under the belief that I was over-complicating the problem, as
+generating an actual list of the shortest path for an NPC is pointless, since
+the PC's position will be changing. Thus, it is only neccessary for an NPC
+(namely the Hikers and Rivals) to move to their next lowest cost terrain cell
+based upon the PC's new position every game turn.
+
+Now implementing these changes.
 ------------------------------------------------------------------------------
 STATUS:
 - For modularity sake, implementing a function 'generateNPC()' that 
@@ -84,7 +96,82 @@ the game, and separate NPC's from the environment.
 	* 'generateCharacters()'
 - Added the sixth type of Trainer, the 'random walkers'.
 - Added macros for all of the NPC's text-symbols.
+- Added function 'findShortestPathHikersAndRivals()' as those are the only
+types of NPCs in which they path to the PC, and must account for traveling
+easy terrain. This method finds the next move for each Hiker and Rival in 
+the map based off of the most recent cost maps, which will be generated
+each game turn. As of now, for testing, these values are printed to the
+console. Each character struct now has a coordinate_t member called
+'nextMove'.
+------------------------------------------------------------------------------
+03/09/2022:
+------------------------------------------------------------------------------
+Now that I have resolved the issues with generating the shortest path for the
+Hikers and Rivals, or the lack thereof, and implemented the ability to
+specify the number of trainers to be generated for the game based off of a
+command line argument, it is now time to focus on the other remaining tasks:
+- Implement a direction member for all character_t structs.
+- Implement static movement for Wanderers, Pacers, and Random Walkers.
+- Implement static  movement for the PC.
+- Implement the 'game turn' functionality.
+- Debug, and then proceed to 'zip and ship'.
 
+A lot has happened since my last update, far too much to place here. Spent
+several hours unable to get findNextMovePacers() to work, but I finally
+have gotten it implemented. Stopped trying to use a cost map for checks,
+and am now solely using a new member of the map_t struct called 
+characterArray[HEIHGT][WIDTH] which only contains the characters. This has
+simplifed the process of printing the characters and later allowing the
+characters to move freely without distorting the mapArray.
+------------------------------------------------------------------------------
+STATUS:
+- Implemented the ability to specify the number of trainers to be generated
+for the current game based off of a command line argument.
+- Implemented a findNextMoves() function which handles finding the next move
+for all types of Trainers. 
+- Implemented findNextMovePacers(), a char characterArray[HEIGHT][WIDTH]
+member to the map_t struct.
+- Removed the creation and printing of non PC, Hikers, and Rivals cost maps.
+- Changed --numTrainers switch to recognize the previous String and then
+obtain the int value of the number of Trainers that will be located in the
+next argument of *argv[].
+- Added the functionality that 'generateDirections()' never generates a 
+direction that the Trainer already was facing, as that would make no sense.
+- Implemented 'findNextMoveWanderers()'.
+- Implemented 'findNextMoveRandomWalkers()'.
+- Implemented 'updateTrainerLocations()'.
+------------------------------------------------------------------------------
+03/10/2022:
+------------------------------------------------------------------------------
+Well, I went to test movement without using a PQ and just using my
+'updateTrainerLocations()' and 'usleep()', and oh lord, things are behaving
+VERY badly. Characters that shouldn't be printed over the terrain map are 
+being printed, Hikers and Rivals are not mapping to the PC, and NPC's are
+leaving the bounds of the map.
+- One idea to solve the bounds issue is to simply make the 'characterArray'
+one row and column smaller than the terrainArray, avoiding the possibility
+to go on the borders entirely.
+- Implemented static movement functions and game turns. While this does not
+use a queue yet, I wanted to guarrantee that I got this assignment submitted
+as is. Thus, some very small bugs exist. Hopefully I can work out the kinks
+and convert my solution to using a priority queue for handling the NPC's
+movements via their corresponding costs in comparison to all of the map's
+NPCs. It turns out I was overcomplicating many of the functions by having
+them do a certain functionality for ALL NPCs, as opposed to doing it one by
+one.
+------------------------------------------------------------------------------
+STATUS:
+- Without using a priority queue, implemented 'game turns', and NPC movement.
+- Some bugs still persist.
+- There are comments and old code that need to be deleted. But, I just wanted
+to make sure that I got my submission submitted prior to the assignment's
+submission being closed.
+- Implemented and changed FAR too many functions to list currently, given
+the time constraints. However, a lot was changed.
+------------------------------------------------------------------------------
 // TODO:
-- Implement 'findShortestPath()'.
-- Implement '--numTrainers' switch.
+------------------------------------------------------------------------------
+- Delete all 'old' and unused code.
+- Implement dynamic movement of NPCs using a priority queue.
+- Refactor code, and delete comments.
+------------------------------------------------------------------------------

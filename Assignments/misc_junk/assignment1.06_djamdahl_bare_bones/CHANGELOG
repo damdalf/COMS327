@@ -1,0 +1,39 @@
+ASSIGNMENT 1.06
+------------------------------------------------------------------------------
+03/29/2022:
+------------------------------------------------------------------------------
+Choosing to begin by understanding reading and parsing files in C++ before
+trying to refactor and change all of the previous code into C++. As of now,
+working to understand reading and parsing the contents of a single file 
+prior to allowing for command-line parameters and the creation of the classes
+and structs to represent these .csv files.
+
+Converted character.c, heap.c, io.c, and poke327.c to .ccp file extensions,
+and fixed associated bugs.
+
+Now with the above implemented, it is time to move the file parsing
+functionality to reside within main. I am starting off by doing that with my
+current solution, and once that is working, I plan to try and refactor the
+file into proper classes and a corresponding header file.
+
+However, before doing the above, I have decided to create a 'bare-bones' 
+submission as the rest of this week will be very busy for me and there is
+no guarrantee that I will be able to complete implementing proper conventions
+for classes and inheritance. Thus, I have thrown my code for parsing files
+inside of poke327.cpp and main to accomplish the required tasks, which 
+includes accepting a file to be parsed's name via a command line parameter.
+------------------------------------------------------------------------------
+STATUS:
+* Implemented parsePokemonList(), printPokemonList(), parseMovesList(),
+printMovesList(), parsePokemonMoves(), printPokemonMovesList(), 
+parsePokemonSpeciesList(), printPokemonSpeciesList(),
+parseExperienceList(), printExperienceList(), parseTypeNameList(),
+printTypeNameList(), and askUserForFile().
+* Converted .c files to .cpp files and corrected associated errors.
+* Added my file parsing code to poke327.cpp and added the ability to specify
+the file to be parsed and stored via a command line argument that runs the 
+game normally if no parameter is passed when running the program.
+* Removed Sheaffer's 'etags' from the Makefile to get rid of annoying
+error messages that have nothing to do with the code.
+------------------------------------------------------------------------------
+
