@@ -1,0 +1,30 @@
+------------------------------------------------------------------------------
+ASSIGNMENT 1.08:
+------------------------------------------------------------------------------
+*** NOTE ***
+------------------------------------------------------------------------------
+I simply created a folder of the needed DB files following Sheaffer's path from
+his 1.07 solution. If you must change the path, please see lines 48 - 64.
+--------------------------------------------------------------------------------
+For this assignment we were tasked with implementing several different 
+functionalities, including: a bag / inventory for the PC (which can be accessed
+using 'B'), the ability to view the PC's Pokemon (which can be displayed using
+'p'),  wild Pokemon battles, and Trainer Battles. We also had to include 
+the following items which are stored within the PC's bag, which can be used:
+Revives, Potions, and Pokeballs.
+
+While there is far more that can be said about all of the finer details (such ascalculating the odds of a PC's escape from a wild Pokemon, whether a Pokemon's
+move hit or missed, the damage done by a Pokemon's move, etc.). However,
+I have put in a ton of time into this assignment and for once I am electing
+to keep my README short and straightforward. 
+
+I have met all of the requirements listed in the assignment's PDF, and there areno bugs that I am aware of. I have tested the code quite extensively, so please
+inform me if you are able to find a bug that I did not detect. While there are
+several features that I believe I implemented very creatively / efficiently, theonly major one that comes to mind is how I went about implementing the PC's bag.
+
+After taling to some of my classmates, many of them elected to create a object
+to represent each kind of item that that can be contained in the PC's bag, I
+believed that was making the problem far more complex than it needed to be and
+simply created an int array which holds three items. The first index of the bag
+represents the number of Revives, the second index holds the number of Potions,
+and the third index holds the number of Pokeballs. Creating objects to representeach item is completely overboard, as the effects of the items should be handledelsewhere. 
