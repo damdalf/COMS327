@@ -1,3 +1,14 @@
+I have elected to keep the README from the most recent assignment,
+but to run this game you will need to unzip the CSV folder and 
+move the corresponding folder to this location within your HOME
+directory:
+
+/Users/yourName/.poke327/pokedex/data/csv 
+
+From there, navigate back to this directory and run 'make'.
+From there, run the program like you would with any C / C++ program
+with './poke327'.
+
 --------------------------------------------------------------------------------
 ASSIGNMENT 1.08:
 --------------------------------------------------------------------------------
