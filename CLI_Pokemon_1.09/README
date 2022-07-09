@@ -1,0 +1,24 @@
+------------------------------------------------------------------------------
+ASSIGNMENT 1.09: Finishing the Game
+------------------------------------------------------------------------------
+*** NOTE ***
+------------------------------------------------------------------------------
+I simply created a folder of the needed DB files following Sheaffer's path from
+his 1.07 solution. If you must change the path, please see lines 48 - 64. Failure to do this will result in compilation errors.
+--------------------------------------------------------------------------------For this assignment we were tasked with implementing the following features to 'complete' the Pokemon game. While there is much more that I would like to implement to create a more complete game, this will have to be done at a later date when I have the time. As of now, I believe there are zero errors in the required features that have been implemented for this iteration of the game.
+ 
+Implemented features as to 1.09's specifications:
+* Implement type effectiveness when calculating the damage for a move.
+	* Parsed type_efficacy.csv.
+	* Matching Pokemon species_id with type_id from pokemon_species and move	s to calculate the type effectiveness.
+	* These calculations can be found in the three calculate_damage() functions that I have created.
+* Trainer's drop PokeBucks upon defeating a Trainer's active Pokemon.
+	* PokeBucks drops range from 0 - 99.
+* PokeMarts now sell revives, potions, and PokeBalls.
+	* Each item costs 100 PokeBucks.
+* PokeCenters allow you to heal all of the PC's active team of Pokemon, as well as view your Pokedex and swap Pokedex Pokemon into your active team of Pokemon.
+* Since the game is so unforgiving, I kept Pokemon catch rates at a guarrantee upon defeating a wild Pokemon.
+	* While this was a listed requirement, I am under the assumption that I can make this design choice, as we were given more freedom for this final assignment. Please let me know if my assumption is incorrect.
+	* I have populated the PokeDex with 200 level Pokemon to allow the TA to more easily grade this feature of the assignment, thus saving them time from having to catch more than six Pokemon in order to test the Pokedex.
+--------------------------------------------------------------------------------
+
